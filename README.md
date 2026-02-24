@@ -50,10 +50,6 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 - GitHub
 
 ---
-
-## 🏗 Estrutura do Projeto
-
-```
 ## 📂 Estrutura do Projeto
 
 ```
@@ -75,7 +71,7 @@ portfolio-profissional/
 ```
 
 ---
-```
+
 
 ---
 
