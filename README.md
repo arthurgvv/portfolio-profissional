@@ -42,15 +42,17 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 
 ## 🏗 Estrutura do Projeto
 
+```
 portfolio-arthur-goncalves/
 │
 ├── index.html
 ├── style.css
 ├── script.js
 ├── assets/
-│ └── imagens/
-│ └── foto.jpeg
+│     └── imagens/
+│           └── foto.jpeg
 └── README.md
+```
 
 ---
 
