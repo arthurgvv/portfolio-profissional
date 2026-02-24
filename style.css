@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    background: #0f172a;
+    padding: 20px 0;
+    border-bottom: 1px solid #1e293b;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #38bdf8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f1f5f9;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+.hero {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+.hero p {
+    margin: 20px 0;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0ea5e9;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #1e293b;
+    color: white;
+}
+
+button {
+    padding: 12px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.social a {
+    margin-right: 15px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid #1e293b;
+    margin-top: 50px;
+}
