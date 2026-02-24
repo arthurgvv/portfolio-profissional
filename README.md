@@ -16,7 +16,7 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 
 ### Wireframe Inicial (Figma)
 
-<img src="./assets/prototipos/wireframe-home.png" width="900px">
+<img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/9b902e19d5cbf60c7147e96e655bb626694acc85/asserts/prototipos/wireframe-home.png" width="900px">
 
 ---
 
@@ -50,20 +50,28 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 - GitHub
 
 ---
-
-## 🏗 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ```
-portfolio-arthur-goncalves/
+portfolio-profissional/
 │
 ├── index.html
 ├── style.css
 ├── script.js
-├── assets/
-│     └── imagens/
-│           └── foto.jpeg
-└── README.md
+├── README.md
+│
+├── asserts/
+│     ├── imagens/
+│     │     └── foto.jpeg
+│     │
+│     └── prototipos/
+│           └── wireframe-home.png
+│
+└── .gitattributes
 ```
+
+---
+
 
 ---
 
@@ -99,7 +107,7 @@ Não é necessário instalar dependências.
 
 | 👤 Nome | 🖼️ Foto | :octocat: GitHub | 💼 LinkedIn | 📤 Gmail |
 |---------|----------|-----------------|-------------|-----------|
-| Arthur Gonçalves | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/main/assets/imagens/foto.jpeg" width="90px" style="border-radius:50%;"> | <a href="https://github.com/arthurgvv">github.com/arthurgvv</a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/">linkedin.com/in/arthur-goncalves-62b15232a</a> | <a href="mailto:arthurgvkj@gmail.com">arthurgvkj@gmail.com</a> |
+| Arthur Gonçalves | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/main/asserts/imagens/foto.jpeg" width="90px" style="border-radius:50%;"> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/">linkedin.com/in/arthur-goncalves-62b15232a</a> | <a href="mailto:arthurgvkj@gmail.com">arthurgvkj@gmail.com</a> |
 
 ---
 
