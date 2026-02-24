@@ -10,6 +10,17 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 
 ---
 
+---
+
+## 🎨 Protótipos
+
+### Wireframe Inicial (Figma)
+
+<img src="./assets/prototipos/wireframe-home.png" width="900px">
+
+---
+
+
 ## ✨ Funcionalidades Principais
 
 - 📄 Seção **Sobre Mim**
