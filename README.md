@@ -16,7 +16,7 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 
 ### Wireframe Inicial (Figma)
 
-<img src="./assets/prototipos/wireframe-home.png" width="900px">
+<img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/9b902e19d5cbf60c7147e96e655bb626694acc85/asserts/prototipos/wireframe-home.png" width="900px">
 
 ---
 
