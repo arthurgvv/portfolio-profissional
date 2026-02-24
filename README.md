@@ -88,7 +88,7 @@ Não é necessário instalar dependências.
 
 | 👤 Nome | 🖼️ Foto | :octocat: GitHub | 💼 LinkedIn | 📤 Gmail |
 |---------|----------|-----------------|-------------|-----------|
-| Arthur Gonçalves | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-arthur-goncalves/main/assets/imagens/foto.jpeg" width="70px" height="70px"> | <a href="https://github.com/arthurgvv">github.com/arthurgvv</a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/">linkedin.com/in/arthur-goncalves-62b15232a</a> | <a href="mailto:arthurgvkj@gmail.com">arthurgvkj@gmail.com</a> |
+| Arthur Gonçalves | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/main/assets/imagens/foto.jpeg" width="90px" style="border-radius:50%;"> | <a href="https://github.com/arthurgvv">github.com/arthurgvv</a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/">linkedin.com/in/arthur-goncalves-62b15232a</a> | <a href="mailto:arthurgvkj@gmail.com">arthurgvkj@gmail.com</a> |
 
 ---
 
