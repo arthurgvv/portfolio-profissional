@@ -44,7 +44,6 @@ O objetivo é construir uma aplicação web moderna, organizada e responsiva uti
 
 ```
 portfolio-arthur-goncalves/
-
 │
 ├── index.html
 ├── style.css
