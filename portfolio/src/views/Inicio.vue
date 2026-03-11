@@ -96,6 +96,13 @@ const skills = [
   grid-template-columns: 1fr 300px;
   gap: 64px;
   align-items: center;
+  pointer-events: none;
+}
+
+.hero-inner a,
+.hero-inner button,
+.hero-inner img {
+  pointer-events: auto;
 }
 
 .hero-left {
