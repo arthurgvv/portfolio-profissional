@@ -120,7 +120,7 @@ const projects = [
     year: '2024',
     name: 'EasyHub',
     description: 'Aplicativo mobile de gestão financeira pessoal criado para quem quer controle sem complexidade. O diferencial está na importação direta de extratos bancários, que elimina o cadastro manual de transações, e nos relatórios personalizados de gastos: painéis visuais que revelam padrões de consumo e ajudam a tomar decisões mais conscientes sobre o dinheiro.',
-    techs: ['Mobile', 'Node.js', 'PostgreSQL'],
+    techs: ['Mobile', 'Node.js', 'Firebase'],
     category: 'Mobile',
     highlight: true,
     images: [
@@ -134,7 +134,7 @@ const projects = [
     year: '2025',
     name: 'GRINDSET',
     description: 'Aplicativo de desenvolvimento pessoal gamificado que transforma rotina em progressão. Combine metas acadêmicas e pessoais, registre hábitos diários e acumule XP a cada conquista. O sistema de recompensas e rankings mantém a motivação alta e torna o autodesenvolvimento tão envolvente quanto um jogo.',
-    techs: ['React', 'PostgreSQL'],
+    techs: ['React', 'Supabase'],
     category: 'Web App',
     highlight: false,
     images: [
