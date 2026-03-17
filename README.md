@@ -1,94 +1,83 @@
 # Portfólio Profissional
 
-Portfólio desenvolvido na disciplina Laboratório de Desenvolvimento de Software da PUC Minas. O site reúne a trajetória acadêmica e profissional, projetos desenvolvidos, experiências relevantes e formas de contato, centralizando as principais informações do perfil em um único lugar.
+Portfólio desenvolvido na disciplina Laboratório de Desenvolvimento de Software da PUC Minas. O site reúne a trajetória acadêmica e profissional, projetos desenvolvidos, experiências relevantes e formas de contato.
 
 ---
 
-## Status do Projeto
+## 🚀 Status do Projeto
 
 ![Sprint](https://img.shields.io/badge/Sprint-03-c8f54a?style=flat-square)
 ![Vue](https://img.shields.io/badge/Vue.js-3.4-42b883?style=flat-square&logo=vuedotjs&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5.0-646cff?style=flat-square&logo=vite&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Publicado-brightgreen?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=flat-square)
 
 ---
 
-## Índice
+## 📚 Índice
 
-- [Links Úteis](#links-úteis)
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Wireframes](#wireframes)
-- [Funcionalidades](#funcionalidades-principais)
-- [Tecnologias](#tecnologias-utilizadas)
-- [Estrutura de Pastas](#estrutura-de-pastas)
-- [Instalação e Execução](#instalação-e-execução)
-- [Deploy](#deploy)
-- [Autor](#autor)
-- [Licença](#licença)
-
----
-
-## Links Úteis
-
-- **Demo Online:** [matheusg-dev.vercel.app](https://matheusg-dev.vercel.app)
+- [Links Úteis](#-links-úteis)
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Wireframes](#-wireframes)
+- [Funcionalidades](#-funcionalidades-principais)
+- [Tecnologias](#-tecnologias-utilizadas)
+- [Estrutura de Pastas](#-estrutura-de-pastas)
+- [Instalação e Execução](#-instalação-e-execução)
+- [Deploy](#-deploy)
+- [Autor](#-autor)
+- [Licença](#-licença)
 
 ---
 
-## Sobre o Projeto
+## 🔗 Links Úteis
+
+- **Repositório:** https://github.com/arthurgvv/portfolio-profissional
+
+---
+
+## 📖 Sobre o Projeto
 
 Este projeto foi desenvolvido na disciplina de Laboratório de Desenvolvimento de Software com o objetivo de reunir, em um único site, as principais informações do perfil acadêmico e profissional.
 
-A proposta é facilitar a apresentação da trajetória, dos projetos e das experiências para professores, recrutadores e demais interessados. O site está organizado em quatro seções: apresentação pessoal bilíngue, linha do tempo de projetos com links para os repositórios, resumo de experiências e página de contato.
+A proposta é facilitar a apresentação da trajetória, dos projetos e das experiências para professores, recrutadores e demais interessados.
 
 ---
 
-## Wireframes
-
-Desenvolvidos em média fidelidade no Figma, cobrindo as quatro páginas do sistema.
-
-| Página | Descrição |
-|--------|-----------|
-| **Sobre Mim** | Hero + apresentação bilíngue PT/EN + skills |
-| **Projetos** | Timeline vertical com cards e links GitHub |
-| **Experiências** | Cards com filtro por tipo de experiência |
-| **Contato** | Links para redes sociais + formulário de mensagem |
+## 🎨 Wireframes
 
 | Sobre Mim | Projetos |
 |:---------:|:--------:|
-| ![wireframe-sobre-mim](docs/wireframes/pg01-sobre-mim.png) | ![wireframe-projetos](docs/wireframes/pg02-projetos.png) |
+| ![](docs/wireframes/pg01-sobre-mim.png) | ![](docs/wireframes/pg02-projetos.png) |
 
 | Experiências | Contato |
 |:------------:|:-------:|
-| ![wireframe-experiencias](docs/wireframes/pg03-experiencias.png) | ![wireframe-contato](docs/wireframes/pg04-contato.png) |
+| ![](docs/wireframes/pg03-experiencias.png) | ![](docs/wireframes/pg04-contato.png) |
 
 ---
 
-## Funcionalidades Principais
+## ⚙️ Funcionalidades Principais
 
-- **Navegação:** menu fixo com Vue Router e transições suaves entre páginas
-- **Sobre Mim:** apresentação bilíngue (PT/EN) e badges de tecnologias
-- **Projetos:** timeline vertical com links para repositórios no GitHub
-- **Experiências:** cards com filtro por tipo (estágio, freelance, open source, etc.)
-- **Contato:** ícones para redes sociais e formulário integrado ao EmailJS
-
----
-
-## Tecnologias Utilizadas
-
-| Tecnologia | Versão | Uso |
-|-----------|--------|-----|
-| **Vue.js** | 3.4+ | Framework principal |
-| **Vue Router** | 4.3+ | Roteamento entre páginas |
-| **Vite** | 5.0+ | Build tool e dev server |
-| **CSS3** | — | Estilização com variáveis CSS |
-| **Google Fonts** | — | Syne + JetBrains Mono |
-| **Vercel** | — | Hospedagem |
-| **EmailJS** | — | Envio do formulário de contato |
-| **@splinetool/viewer** | — | Efeito 3D interativo na Home |
+- Navegação com Vue Router
+- Apresentação bilíngue (PT/EN)
+- Timeline de projetos
+- Filtro de experiências
+- Formulário de contato
 
 ---
 
-## Estrutura de Pastas
+## 🛠️ Tecnologias Utilizadas
+
+- Vue.js 3
+- Vue Router
+- Vite
+- CSS3
+- EmailJS
+- Spline (3D)
+- Vercel (deploy)
+
+---
+
+## 📂 Estrutura de Pastas
+
 
 ```
 portfolio/                          ← raiz do repositório
@@ -96,12 +85,8 @@ portfolio/                          ← raiz do repositório
 ├── README.md
 ├── docs/
 │   ├── wireframes/                 ← imagens dos wireframes (Figma)
-│   │   ├── pg01-sobre-mim.png
-│   │   ├── pg02-projetos.png
-│   │   ├── pg03-experiencias.png
-│   │   └── pg04-contato.png
-│   └── LABORATÓRIO 01 - Alternativo - Portfólio Profissional.pdf
-└── portfolio/                      ← projeto Vue.js
+│   │   ├── wireframe-home (1).png
+└── portfolio/                      
     ├── .gitignore
     ├── index.html
     ├── package.json
@@ -115,13 +100,7 @@ portfolio/                          ← raiz do repositório
         │   └── styles/
         │       ├── variables.css
         │       ├── global.css
-        │       ├── profile.jpg
-        │       ├── easyhub.png
-        │       ├── easyhub2.png
-        │       ├── easyhub3.png
-        │       ├── grindset.png
-        │       ├── grindset2.png
-        │       └── grindset3.png
+        │       └── profile.jpg
         ├── components/
         │   ├── Navegacao.vue
         │   └── Rodape.vue
@@ -137,27 +116,16 @@ portfolio/                          ← raiz do repositório
 
 ---
 
-## Instalação e Execução
 
-**Pré-requisitos:** Node.js v18+ e npm v9+
+---
+
+## 💻 Instalação
 
 ```bash
-# Clone o repositório
-git clone https://github.com/theuzao/portfolio-profissional.git
+git clone https://github.com/arthurgvv/portfolio-profissional.git
 cd portfolio-profissional/portfolio
-
-# Instale as dependências
 npm install
-
-# Inicie o servidor de desenvolvimento
 npm run dev
-```
-
-```bash
-npm run build    # build de produção
-npm run preview  # prévia do build localmente
-```
-
 ---
 
 ## Deploy
@@ -175,9 +143,11 @@ O arquivo `vercel.json` já está configurado para suportar o roteamento SPA do 
 
 ## Autor
 
-| Nome | GitHub |
-|------|--------|
-| Matheus Guilherme Viana Pereira | [github.com/theuzao](https://github.com/theuzao) |
+## 👤 Autor
+
+| 👤 Nome | 🖼️ Foto | GitHub | LinkedIn | Email |
+|--------|--------|--------|----------|-------|
+| Arthur Gonçalves Vieira | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/main/portfolio/src/assets/styles/profile.jpg" width="100px" style="border-radius:50%;"> | <a href="https://github.com/arthurgvv"><img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a> | <a href="mailto:arthurgvkj@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> |
 
 ---
 
