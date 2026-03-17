@@ -3,3 +3,4 @@
   "outputDirectory": "portfolio/dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
+a
