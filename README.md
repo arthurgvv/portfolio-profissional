@@ -44,17 +44,8 @@ A proposta é facilitar a apresentação da trajetória, dos projetos e das expe
 
 ## 🎨 Wireframes
 
-| Sobre Mim | Projetos |
-|:---------:|:--------:|
-| <img width="767" height="427" alt="sobremim" src="https://github.com/user-attachments/assets/b19024bb-b99f-4bff-b363-dafc72812f0d" />
- | <img width="787" height="141" alt="projetos" src="https://github.com/user-attachments/assets/7677752e-04c6-4abe-8410-da6109e192bc" />
- |
+<img width="2000" height="2400" alt="wireframe-home (1)" src="https://github.com/user-attachments/assets/9b524c3a-e08e-410f-9da6-ca1637a8e619" />
 
-| Experiências | Contato |
-|:------------:|:-------:|
-| <img width="788" height="118" alt="experiencias" src="https://github.com/user-attachments/assets/18a1fce0-2a1b-437b-940d-a9b0bce3c671" />
- | <img width="781" height="308" alt="contato" src="https://github.com/user-attachments/assets/4bbb15c8-d902-4c95-b43b-694dfe851526" />
- |
 
 ---
 
