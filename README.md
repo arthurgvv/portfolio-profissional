@@ -46,15 +46,15 @@ A proposta é facilitar a apresentação da trajetória, dos projetos e das expe
 
 | Sobre Mim | Projetos |
 |:---------:|:--------:|
-| (<img width="767" height="427" alt="sobremim" src="https://github.com/user-attachments/assets/b19024bb-b99f-4bff-b363-dafc72812f0d" />
-) | (<img width="787" height="141" alt="projetos" src="https://github.com/user-attachments/assets/7677752e-04c6-4abe-8410-da6109e192bc" />
-) |
+| <img width="767" height="427" alt="sobremim" src="https://github.com/user-attachments/assets/b19024bb-b99f-4bff-b363-dafc72812f0d" />
+ | <img width="787" height="141" alt="projetos" src="https://github.com/user-attachments/assets/7677752e-04c6-4abe-8410-da6109e192bc" />
+ |
 
 | Experiências | Contato |
 |:------------:|:-------:|
-| (<img width="788" height="118" alt="experiencias" src="https://github.com/user-attachments/assets/18a1fce0-2a1b-437b-940d-a9b0bce3c671" />
-) | (<img width="781" height="308" alt="contato" src="https://github.com/user-attachments/assets/4bbb15c8-d902-4c95-b43b-694dfe851526" />
-) |
+| <img width="788" height="118" alt="experiencias" src="https://github.com/user-attachments/assets/18a1fce0-2a1b-437b-940d-a9b0bce3c671" />
+ | <img width="781" height="308" alt="contato" src="https://github.com/user-attachments/assets/4bbb15c8-d902-4c95-b43b-694dfe851526" />
+ |
 
 ---
 
