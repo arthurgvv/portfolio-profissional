@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <RouterLink to="/" class="nav-logo">
-        <span class="bracket">&lt;</span>MGV<span class="bracket">/&gt;</span>
+        <span class="bracket">&lt;</span>ArthurGVv<span class="bracket">/&gt;</span>
       </RouterLink>
 
       <div class="nav-links" :class="{ open: menuOpen }">

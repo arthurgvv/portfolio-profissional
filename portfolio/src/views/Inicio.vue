@@ -9,7 +9,7 @@
 
         <div class="hero-left">
           <h1 class="hero-title">
-            Matheus <span class="accent">Guilherme</span>
+            Arthur <span class="accent">Goncalves</span>
           </h1>
 
           <p class="hero-subtitle">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="hero-right">
-          <img src="@/assets/styles/profile.jpg" alt="Matheus Guilherme" class="avatar-img" />
+          <img src="@/assets/styles/profile.jpg" alt="Arthur Goncalves" class="avatar-img" />
         </div>
 
       </div>
@@ -33,18 +33,22 @@
         <div class="about-lang">
           <span class="lang-tag mono">🇧🇷 Português</span>
           <p>
-            Estudante de Engenharia de Software na PUC Minas com experiência em suporte técnico
-            e desenvolvimento de sistemas. Autodidata desde cedo, busco construir soluções com
-            propósito e impacto real.
+            <p>
+  Estudante de Engenharia de Software na PUC Minas, com foco em desenvolvimento de sistemas e análise de dados. 
+  Possuo experiência com modelagem de dados, construção de consultas SQL e desenvolvimento de aplicações web.
+  
+  Sou disciplinado e orientado a resultados, sempre em busca de criar soluções eficientes, escaláveis e com impacto real.
+</p>
           </p>
           <RouterLink to="/sobre" class="about-link mono">Ler mais →</RouterLink>
         </div>
         <div class="about-lang">
           <span class="lang-tag mono">🇺🇸 English</span>
           <p>
-            Software Engineering student at PUC Minas with experience in technical support and
-            systems development. Self-taught from an early age, I seek to build solutions with
-            real purpose and impact.
+            Software Engineering student at PUC Minas, focused on systems development and data analysis.
+I have experience with data modeling, SQL query development, and web applications.
+
+I am disciplined and results-oriented, always seeking to create efficient, scalable solutions with real impact.
           </p>
           <RouterLink to="/sobre" class="about-link mono">Read more →</RouterLink>
         </div>
@@ -66,8 +70,8 @@ import { RouterLink } from 'vue-router'
 import '@splinetool/viewer'
 
 const skills = [
-  'Java', 'Spring Boot', 'Vue.js', 'React',
-  'PostgreSQL', 'PHP', 'Python', 'Docker', 'Git',
+  'PostgreSQL','Java', 'Spring Boot', 'Vue.js', 'React',
+  'Python', 'Git',
 ]
 </script>
 
@@ -251,10 +255,12 @@ const skills = [
 
 .skills {
   border-top: 1px solid var(--border);
-  padding: 20px 0;
+  padding: 20px 32px;
 }
 
 .skills-strip {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 10px;

@@ -3,11 +3,11 @@
     <div class="footer-inner">
       <span class="footer-copy mono">
         &copy; {{ year }}
-        <span class="accent">Matheus Guilherme</span>
+        <span class="accent">Arthur Goncalves</span>
 </span>
       <div class="footer-links">
-        <a href="https://github.com/theuzao" target="_blank" rel="noopener" class="mono">GitHub</a>
-        <a href="https://linkedin.com/in/theuzao" target="_blank" rel="noopener" class="mono">LinkedIn</a>
+        <a href="https://github.com/arthurgvv" target="_blank" rel="noopener" class="mono">GitHub</a>
+        <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/" target="_blank" rel="noopener" class="mono">LinkedIn</a>
       </div>
     </div>
   </footer>

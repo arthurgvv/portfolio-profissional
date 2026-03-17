@@ -6,16 +6,8 @@
       <div class="header-row">
         <h1 class="page-title">{{ content[lang].title }}</h1>
         <div class="lang-toggle">
-          <button
-            class="lang-btn mono"
-            :class="{ active: lang === 'pt' }"
-            @click="lang = 'pt'"
-          >🇧🇷 PT</button>
-          <button
-            class="lang-btn mono"
-            :class="{ active: lang === 'en' }"
-            @click="lang = 'en'"
-          >🇺🇸 EN</button>
+          <button class="lang-btn mono" :class="{ active: lang === 'pt' }" @click="lang = 'pt'">🇧🇷 PT</button>
+          <button class="lang-btn mono" :class="{ active: lang === 'en' }" @click="lang = 'en'">🇺🇸 EN</button>
         </div>
       </div>
       <p class="page-subtitle">{{ content[lang].subtitle }}</p>
@@ -31,7 +23,6 @@
             </div>
           </div>
         </Transition>
-
       </div>
 
       <aside class="sobre-aside">
@@ -39,11 +30,7 @@
         <div class="aside-block">
           <p class="aside-title mono">{{ content[lang].stackTitle }}</p>
           <div class="skill-list">
-            <div
-              v-for="skill in skills"
-              :key="skill.name"
-              class="skill-row"
-            >
+            <div v-for="skill in skills" :key="skill.name" class="skill-row">
               <span class="skill-name mono">{{ skill.name }}</span>
               <div class="skill-bar">
                 <div class="skill-fill" :style="{ width: skill.level + '%' }"></div>
@@ -52,7 +39,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="aside-block">
           <p class="aside-title mono">{{ content[lang].educationTitle }}</p>
@@ -81,13 +67,13 @@ const lang = ref('pt')
 const content = {
   pt: {
     title: 'Sobre Mim',
-    subtitle: 'Engenheiro de Software em formação. Construo sistemas desde os 13 anos, sem saber que isso tinha nome.',
+    subtitle: 'Engenheiro de Software em formação na PUC Minas.',
     stackTitle: 'Stack principal',
     educationTitle: 'Formação',
     bio: [
-      'Aos treze anos, tive meu primeiro contato com programação através do Habbo Hotel, onde atuei criando eventos, promoções e minigames utilizando HTML e CSS. Na época parecia apenas uma brincadeira, mas foi ali que comecei a desenvolver minhas primeiras habilidades técnicas.',
-      'Anos depois, durante a pandemia, o contato com obras como Serial Experiments Lain despertou um interesse mais profundo sobre identidade digital e tecnologia. A partir disso, passei a estudar programação de forma intencional e decidi seguir carreira na área. Hoje curso Engenharia de Software na PUC Minas e busco desenvolver sistemas que tenham propósito e impacto real.',
-      'Atualmente, minha principal linguagem é Java, e tenho direcionado meus estudos para a área de dados, explorando como transformar informação em sistemas mais inteligentes.',
+      'Meu primeiro contato com programação aconteceu durante a pandemia, quando comecei a explorar a área de tecnologia de forma mais curiosa e independente. O que começou como um interesse simples evoluiu para uma conexão mais profunda com a área.',
+      'Em 2024, iniciei minha formação em Análise e Desenvolvimento de Sistemas pela PUC Minas. Após o primeiro período, migrei para Engenharia de Software, onde realmente desenvolvi gosto pela programação e defini meu objetivo de seguir carreira na área.',
+      'Atualmente, minha principal linguagem é SQL, e busco escrever consultas com precisão e eficiência, transformando dados em decisões inteligentes.'
     ],
     education: [
       {
@@ -100,13 +86,13 @@ const content = {
   },
   en: {
     title: 'About Me',
-    subtitle: 'Software Engineering student. Building systems since age 13, before knowing it had a name.',
+    subtitle: 'Software Engineering student at PUC Minas.',
     stackTitle: 'Main Stack',
     educationTitle: 'Education',
     bio: [
-      'At thirteen, I had my first contact with programming through Habbo Hotel, where I created events, promotions, and mini-games using HTML and CSS. At the time it felt like just a hobby, but that is where I began developing my first technical skills.',
-      'Years later, during the pandemic, works like Serial Experiments Lain sparked a deeper interest in digital identity and technology. From that point on, I started studying programming with intention and decided to pursue a career in the field. Today I study Software Engineering at PUC Minas and aim to build systems with real purpose and impact.',
-      'Currently, my main language is Java, and I have been directing my studies toward data, exploring how to turn information into smarter systems.',
+      'My first contact with programming happened during the pandemic, when I began exploring technology in a more curious and independent way. What started as a simple interest gradually turned into a deeper connection with the field.',
+      'In 2024, I started my studies in Systems Analysis and Development at PUC Minas. After my first semester, I transitioned to Software Engineering, where I truly developed a passion for programming and defined my goal of building a career in the area.',
+      'Currently, my main language is SQL, and I focus on writing precise and efficient queries, turning data into intelligent decision-making.'
     ],
     education: [
       {
@@ -120,12 +106,11 @@ const content = {
 }
 
 const skills = [
+  { name: 'PostgreSQL',         level: 85 },
   { name: 'Java / Spring Boot', level: 75 },
-  { name: 'JavaScript',         level: 70 },
-  { name: 'Vue.js',             level: 70 },
-  { name: 'React',              level: 65 },
-  { name: 'Docker',             level: 60 },
-  { name: 'PostgreSQL',         level: 60 },
+  { name: 'Python',             level: 70 },
+  { name: 'React',              level: 60 },
+  { name: 'Vue.js',             level: 50 },
 ]
 </script>
 

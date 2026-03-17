@@ -62,26 +62,26 @@ const activeFilter = ref('Todos')
 const experiences = [
   {
     id: 1,
-    icon: '👁️',
-    role: 'Técnico de Informática',
-    company: 'BH Olhos - Clínica Oftalmológica',
-    period: '2023 – 2024.2',
+    icon: '🛍️',
+    role: 'Fundador & Gestor',
+    company: 'Finesse Sportz',
+    period: '2022 – Atual',
     type: 'Emprego',
     description:
-      'Suporte técnico em ambiente clínico com atendimento direto a usuários e manutenção de sistemas internos. Desenvolvimento e manutenção de funcionalidades em PHP integradas ao banco de dados MySQL. Gestão de equipamentos, rede local e impressoras. Colaboração com equipe multidisciplinar para garantir a continuidade dos serviços de TI na clínica.',
-    techs: ['PHP', 'MySQL', 'Suporte TI', 'Redes'],
-    current: false,
+      'Criação e gestão de loja de artigos esportivos com foco em posicionamento digital e vendas online. Responsável pela estratégia do negócio, análise de mercado, definição de produtos e acompanhamento de métricas. Desenvolvimento de visão orientada a dados para tomada de decisão e otimização de resultados.',
+    techs: ['Negócios', 'Marketing Digital', 'Gestão'],
+    current: true,
   },
   {
     id: 2,
     icon: '🎓',
-    role: 'Engenharia de Software',
+    role: 'Estudante de Engenharia de Software',
     company: 'PUC Minas',
-    period: '2024.2 – 2028.1 (previsão)',
+    period: '2024 – 2028 (previsão)',
     type: 'Acadêmico',
     description:
-      'Bacharelado em Engenharia de Software com foco em análise, modelagem, projeto, construção e teste de sistemas. Grade abrange algoritmos, estruturas de dados, banco de dados, redes, segurança, arquitetura de software, gerência de projetos e desenvolvimento mobile/cloud.',
-    techs: ['Java', 'Spring Boot', 'Vue.js', 'Python', 'PostgreSQL', 'Mobile'],
+      'Graduação em Engenharia de Software com foco em análise de dados e desenvolvimento de sistemas. Experiência com modelagem de dados, construção de consultas SQL e lógica de programação. Direcionando a formação para a área de dados, buscando transformar informações em soluções inteligentes e orientadas a resultados.',
+    techs: ['SQL','Python', 'Java', 'Modelagem de Dados'],
     current: true,
   },
 ]
