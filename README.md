@@ -142,7 +142,7 @@ O arquivo `vercel.json` já está configurado para suportar o roteamento SPA do 
 
 | 👤 Nome | 🖼️ Foto | GitHub | LinkedIn | Email |
 |--------|--------|--------|----------|-------|
-| Arthur Gonçalves Vieira | <img src="https://raw.githubusercontent.com/arthurgvv/portfolio-profissional/main/portfolio/src/assets/styles/profile.jpg" width="100px" style="border-radius:50%;"> | <a href="https://github.com/arthurgvv"><img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a> | <a href="mailto:arthurgvkj@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> |
+| Arthur Gonçalves Vieira | <img src="![profile](https://github.com/user-attachments/assets/12624789-3153-4cb6-bee1-2f10724901a4)" width="100px" style="border-radius:50%;"> | <a href="https://github.com/arthurgvv"><img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/arthur-goncalves-62b15232a/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a> | <a href="mailto:arthurgvkj@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> |
 
 ---
 
