@@ -44,6 +44,15 @@ A proposta é facilitar a apresentação da trajetória, dos projetos e das expe
 
 ## 🎨 Wireframes
 
+Desenvolvidos em média fidelidade no Figma.
+
+| Página | Descrição |
+|--------|-----------|
+| **Sobre Mim** | Hero + apresentação bilíngue PT/EN + skills |
+| **Projetos** | Timeline vertical com cards e links GitHub |
+| **Experiências** | Cards com filtro por tipo de experiência |
+| **Contato** | Links para redes sociais + formulário de mensagem |
+
 <img width="2000" height="2400" alt="wireframe-home (1)" src="https://github.com/user-attachments/assets/9b524c3a-e08e-410f-9da6-ca1637a8e619" />
 
 
@@ -116,12 +125,19 @@ portfolio/                          ← raiz do repositório
 
 ## 💻 Instalação
 
+**Pré-requisitos:** Node.js v18+ e npm v9+
+
 ```bash
-git clone https://github.com/arthurgvv/portfolio-profissional.git
+# Clone o repositório
+git clone https://github.com/theuzao/portfolio-profissional.git
 cd portfolio-profissional/portfolio
+
+# Instale as dependências
 npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
----
+```
 
 ## Deploy
 
