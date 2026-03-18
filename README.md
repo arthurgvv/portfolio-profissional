@@ -31,7 +31,7 @@ Portfólio desenvolvido na disciplina Laboratório de Desenvolvimento de Softwar
 ## 🔗 Links Úteis
 
 - **Repositório:** https://github.com/arthurgvv/portfolio-profissional
-- - **Site:** https://portfolio-arthur-six.vercel.app
+- **Site:** https://portfolio-arthur-six.vercel.app
 
 ---
 
