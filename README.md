@@ -84,38 +84,40 @@ Desenvolvidos em média fidelidade no Figma.
 
 
 ```
-portfolio/                          ← raiz do repositório
+portfolio-profissional/ ← raiz do repositório
 ├── .gitignore
 ├── README.md
 ├── docs/
-│   ├── wireframes/                 ← imagens dos wireframes (Figma)
-│   │   ├── wireframe-home (1).png
-└── portfolio/                      
-    ├── .gitignore
-    ├── index.html
-    ├── package.json
-    ├── package-lock.json
-    ├── vite.config.js
-    ├── vercel.json
-    └── src/
-        ├── App.vue
-        ├── main.js
-        ├── assets/
-        │   └── styles/
-        │       ├── variables.css
-        │       ├── global.css
-        │       └── profile.jpg
-        ├── components/
-        │   ├── Navegacao.vue
-        │   └── Rodape.vue
-        ├── router/
-        │   └── index.js
-        └── views/
-            ├── Inicio.vue
-            ├── SobreMim.vue
-            ├── Projetos.vue
-            ├── Experiencias.vue
-            └── Contato.vue
+│ └── wireframes/
+│ └── wireframe-home (1).png
+└── portfolio/
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── vercel.json
+├── dist/ ← build de produção (gerado automaticamente)
+├── node_modules/ ← dependências (não versionar)
+└── src/
+├── App.vue
+├── main.js
+├── assets/
+│ ├── styles/
+│ │ ├── variables.css
+│ │ └── global.css
+│ └── profile.jpg
+├── components/
+│ ├── Navegacao.vue
+│ └── Rodape.vue
+├── router/
+│ └── index.js
+└── views/
+├── Inicio.vue
+├── SobreMim.vue
+├── Projetos.vue
+├── Experiencias.vue
+└── Contato.vue
 ```
 
 ---
