@@ -148,14 +148,26 @@ npm run dev
 
 ## 🚀 Deploy
 
-O projeto é hospedado na **Vercel**. Para replicar:
+O projeto é hospedado na Vercel.
 
-1. Faça push do repositório para o GitHub
-2. Importe o repositório em [vercel.com](https://vercel.com)
-3. Configure a pasta raiz como `portfolio/`, build command `npm run build` e output `dist`
-4. Clique em **Deploy**
+Passos:
 
-O arquivo `vercel.json` já está configurado para suportar o roteamento SPA do Vue Router.
+Faça push do repositório para o GitHub
+
+Importe o repositório na Vercel
+
+Configure:
+
+Root Directory: portfolio/
+
+Build Command: npm run build
+
+Output Directory: dist
+
+Clique em Deploy
+
+✔ Suporte a SPA com Vue Router via vercel.json
+✔ Deploy automático a cada commit
 
 ---
 
