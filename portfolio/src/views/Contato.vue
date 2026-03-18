@@ -105,9 +105,11 @@
 import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
 
-const EJS_SERVICE  = 'service_hrz42i7'
-const EJS_TEMPLATE = 'template_aioxtvg'
-const EJS_KEY      = 'AuEERyPv9hpaN5Sm9'
+emailjs.init('VZBRhUuIAKNQg7Kd2')
+
+const EJS_SERVICE  = 'service_wsx9fqh'
+const EJS_TEMPLATE = 'template_oz269bd'
+const EJS_KEY      = 'VZBRhUuIAKNQg7Kd2'
 
 const socials = [
   {
