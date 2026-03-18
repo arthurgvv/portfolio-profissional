@@ -131,7 +131,9 @@ portfolio-profissional/ ← raiz do repositório
 
 ```bash
 # Clone o repositório
-git clone https://github.com/theuzao/portfolio-profissional.git
+git clone https://github.com/arthurgvv/portfolio-profissional.git
+
+# Acesse a pasta do projeto
 cd portfolio-profissional/portfolio
 
 # Instale as dependências
