@@ -1,4 +1,4 @@
-# 🎓Portfólio Profissional
+# 🎓 Portfólio Profissional
 
 Portfólio desenvolvido na disciplina Laboratório de Desenvolvimento de Software da PUC Minas. O site reúne a trajetória acadêmica e profissional, projetos desenvolvidos, experiências relevantes e formas de contato.
 
@@ -31,6 +31,7 @@ Portfólio desenvolvido na disciplina Laboratório de Desenvolvimento de Softwar
 ## 🔗 Links Úteis
 
 - **Repositório:** https://github.com/arthurgvv/portfolio-profissional
+- - **Site:** https://portfolio-arthur-six.vercel.app
 
 ---
 
@@ -141,9 +142,11 @@ npm install
 
 # Inicie o servidor de desenvolvimento
 npm run dev
+
+💡 O projeto será iniciado em: http://localhost:5173
 ```
 
-## Deploy
+## 🚀 Deploy
 
 O projeto é hospedado na **Vercel**. Para replicar:
 
@@ -155,8 +158,6 @@ O projeto é hospedado na **Vercel**. Para replicar:
 O arquivo `vercel.json` já está configurado para suportar o roteamento SPA do Vue Router.
 
 ---
-
-## Autor
 
 ## 👤 Autor
 
