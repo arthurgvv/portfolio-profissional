@@ -102,14 +102,18 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-import emailjs from '@emailjs/browser'
 
-emailjs.init('VZBRhUuIAKNQg7Kd2')
+import { ref, reactive, onMounted } from 'vue'
+import emailjs from '@emailjs/browser'
 
 const EJS_SERVICE  = 'service_wsx9fqh'
 const EJS_TEMPLATE = 'template_oz269bd'
 const EJS_KEY      = 'VZBRhUuIAKNQg7Kd2'
+
+onMounted(() => {
+  emailjs.init(EJS_KEY)
+})
+
 
 const socials = [
   {
@@ -180,22 +184,22 @@ async function handleSubmit() {
   feedback.value = null
 
   try {
-    await emailjs.send(EJS_SERVICE, EJS_TEMPLATE, {
-      from_name: form.name,
-      from_email: form.email,
-      message: form.message,
-    }, EJS_KEY)
+    await emailjs.sendForm(
+  EJS_SERVICE,
+  EJS_TEMPLATE,
+  document.querySelector('.contact-form'),
+  EJS_KEY
+)
 
     feedback.value = { type: 'success', text: '✓ Mensagem enviada! Em breve retornarei o contato.' }
     form.name = ''
     form.email = ''
     form.message = ''
     setTimeout(() => { feedback.value = null }, 7000)
-  } catch {
-    feedback.value = { type: 'error', text: '✗ Erro ao enviar. Tente novamente mais tarde.' }
-  } finally {
-    sending.value = false
-  }
+  } catch (error) {
+  console.error("ERRO EMAILJS:", error)
+  feedback.value = { type: 'error', text: '✗ Erro ao enviar. Tente novamente.' }
+}
 }
 </script>
 

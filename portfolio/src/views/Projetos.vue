@@ -124,19 +124,23 @@ const projects = [
     category: 'Web App',
     highlight: true,
     link: 'https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti3-9545100-consultoriomedico',
-    images: [],
+    images: [
+  new URL('../assets/styles/consul.png', import.meta.url).href
+],
   },
   {
-    id: 2,
-    year: '2025',
-    name: 'Sistema de Cálculo de Folha de Pagamento',
-    description: 'Projeto desenvolvido em equipe para simular o cálculo de folha de pagamento, aplicando regras de negócio e lógica de programação para garantir resultados corretos, organizados e consistentes.',
-    techs: ['Python'],
-    category: 'Estudo',
-    highlight: false,
-    link: 'https://github.com/pm-puc-minas/calculo-folha-pagamento-teorica-grupo1',
-    images: [],
-  },
+  id: 2,
+  year: '2025',
+  name: "Finesse Sportz",
+  description: "Sistema web desenvolvido para uma loja de artigos esportivos, com foco em catálogo dinâmico e experiência do usuário. Atuei como desenvolvedor, contribuindo na implementação das funcionalidades, organização do código e evolução da aplicação em equipe.",
+  techs: ['Web App','React', 'Java','JavaScript', 'CSS',],
+  category: 'Web App',
+  highlight: false,
+  link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti2-3740100-finesse-sportz",
+  images: [
+  new URL('../assets/styles/finesse.png', import.meta.url).href
+],
+},
 ]
 
 const filteredProjects = computed(() => {
