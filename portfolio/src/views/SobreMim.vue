@@ -109,8 +109,8 @@ const skills = [
   { name: 'PostgreSQL',         level: 85 },
   { name: 'Java / Spring Boot', level: 75 },
   { name: 'Python',             level: 70 },
+  { name: 'Vue.js',             level: 70 },
   { name: 'React',              level: 60 },
-  { name: 'Vue.js',             level: 50 },
 ]
 </script>
 

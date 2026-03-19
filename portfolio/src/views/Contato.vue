@@ -108,11 +108,7 @@ import emailjs from '@emailjs/browser'
 
 const EJS_SERVICE  = 'service_wsx9fqh'
 const EJS_TEMPLATE = 'template_oz269bd'
-const EJS_KEY      = 'VZBRhUuIAKNQg7Kd2'
-
-onMounted(() => {
-  emailjs.init(EJS_KEY)
-})
+const EJS_KEY      = 'VZBRhUulAKNQg7Kd2'
 
 
 const socials = [
