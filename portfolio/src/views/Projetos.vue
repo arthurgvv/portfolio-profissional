@@ -33,7 +33,7 @@
           >
             <div class="tl-year mono">{{ project.year }}</div>
             <div class="tl-dot" :class="{ active: project.highlight }"></div>
-            <div class="tl-card" :class="{ featured: project.highlight }">
+            <div class="tl-card" :class="{ featured: project.highlight }"@click="abrirProjeto(project.link)"style="cursor: pointer;">
 
               <div class="tl-card-gallery">
                 <template v-if="project.images && project.images.length > 0">
@@ -112,6 +112,9 @@ function next(project) {
 function prev(project) {
   const cur = activeIndex[project.id] ?? 0
   activeIndex[project.id] = (cur - 1 + project.images.length) % project.images.length
+}
+function abrirProjeto(link) {
+  window.open(link, "_blank")
 }
 
 const projects = [
