@@ -1,0 +1,37 @@
+:root {
+  /* Backgrounds */
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --surface-alt: #1a1a1a;
+  --surface-dark: #121212;
+
+  /* Borders */
+  --border: #2a2a2a;
+  --border-light: #3a3a3a;
+
+  /* Placeholders */
+  --placeholder: #2e2e2e;
+  --placeholder-light: #3d3d3d;
+
+  /* Text */
+  --text: #e8e8e8;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+
+  /* Accent */
+  --accent: #c8f54a;
+  --accent-dim: rgba(200, 245, 74, 0.12);
+  --accent-dim2: rgba(200, 245, 74, 0.06);
+
+  /* Status colors */
+  --blue: #4a90f5;
+  --green: #00c850;
+
+  /* Radii */
+  --radius-card: 10px;
+  --radius-badge: 5px;
+  --radius-pill: 20px;
+
+  /* Shadows */
+  --shadow-main: 0 24px 64px rgba(0, 0, 0, 0.6);
+}

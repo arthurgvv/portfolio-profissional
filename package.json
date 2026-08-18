@@ -1,0 +1,6 @@
+{
+  "name": "portfolio-profissional",
+  "scripts": {
+    "build": "cd portfolio && npm install && npm run build"
+  }
+}
