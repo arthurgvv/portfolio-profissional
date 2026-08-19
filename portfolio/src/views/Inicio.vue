@@ -9,15 +9,15 @@
 
         <div class="hero-left">
           <h1 class="hero-title">
-            Arthur <span class="accent">Goncalves</span>
+            Arthur <span class="accent">Gonçalves</span>
           </h1>
 
           <p class="hero-subtitle">
-            Engenheiro de Software em formação pela PUC Minas.
+            {{ content[lang].heroSubtitle }}
           </p>
 
           <div class="hero-btns">
-            <RouterLink to="/projetos" class="btn-primary mono">Ver Projetos ↓</RouterLink>
+            <RouterLink to="/projetos" class="btn-primary mono">{{ content[lang].projectsButton }}</RouterLink>
           </div>
         </div>
 
@@ -30,27 +30,10 @@
 
     <section class="about">
       <div class="about-grid">
-        <div class="about-lang">
-          <span class="lang-tag mono">🇧🇷 Português</span>
-          <p>
-            <p>
-  Estudante de Engenharia de Software na PUC Minas, com foco em desenvolvimento de sistemas e análise de dados. 
-  Possuo experiência com modelagem de dados, construção de consultas SQL e desenvolvimento de aplicações web.
-  
-  Sou disciplinado e orientado a resultados, sempre em busca de criar soluções eficientes, escaláveis e com impacto real.
-</p>
-          </p>
-          <RouterLink to="/sobre" class="about-link mono">Ler mais →</RouterLink>
-        </div>
-        <div class="about-lang">
-          <span class="lang-tag mono">🇺🇸 English</span>
-          <p>
-            Software Engineering student at PUC Minas, focused on systems development and data analysis.
-I have experience with data modeling, SQL query development, and web applications.
-
-I am disciplined and results-oriented, always seeking to create efficient, scalable solutions with real impact.
-          </p>
-          <RouterLink to="/sobre" class="about-link mono">Read more →</RouterLink>
+        <div class="about-lang featured">
+          <span class="lang-tag mono">{{ content[lang].languageTag }}</span>
+          <p>{{ content[lang].about }}</p>
+          <RouterLink to="/sobre" class="about-link mono">{{ content[lang].readMore }}</RouterLink>
         </div>
       </div>
     </section>
@@ -68,10 +51,30 @@ I am disciplined and results-oriented, always seeking to create efficient, scala
 <script setup>
 import { RouterLink } from 'vue-router'
 import '@splinetool/viewer'
+import { useLanguage } from '../composables/useLanguage'
+
+const { lang } = useLanguage()
+
+const content = {
+  pt: {
+    heroSubtitle: 'Engenharia de Software | Python | Databricks | SQL',
+    projectsButton: 'Ver Projetos ↓',
+    languageTag: 'BR Português',
+    about: 'Estudante de Engenharia de Software na PUC Minas, direcionando minha formação para Dados. Estou aprofundando meus estudos em SQL, Python, Databricks, modelagem de dados e organização de informações para análise.',
+    readMore: 'Ler mais →',
+  },
+  en: {
+    heroSubtitle: 'Software Engineering | Python | Databricks | SQL',
+    projectsButton: 'View Projects ↓',
+    languageTag: 'US English',
+    about: 'Software Engineering student at PUC Minas, currently steering my studies toward Data. I am deepening my knowledge in SQL, Python, Databricks, data modeling and organizing information for analysis.',
+    readMore: 'Read more →',
+  },
+}
 
 const skills = [
-  'PostgreSQL','Java', 'Spring Boot', 'Vue.js', 'React',
-  'Python', 'Git',
+  'SQL', 'Python', 'Databricks', 'Java', 'HTML', 'CSS', 'JavaScript', 'C',
+  'Vue', 'React', 'Node', 'Vite', 'Git', 'Docker',
 ]
 </script>
 
@@ -191,7 +194,7 @@ const skills = [
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .about-lang {
@@ -205,7 +208,7 @@ const skills = [
   overflow: hidden;
 }
 
-.about-lang:last-child {
+.about-lang.featured {
   border-right: none;
 }
 
