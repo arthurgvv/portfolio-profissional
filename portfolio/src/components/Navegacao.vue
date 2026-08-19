@@ -6,12 +6,21 @@
       </RouterLink>
 
       <div class="nav-links" :class="{ open: menuOpen }">
-        <RouterLink to="/sobre" @click="menuOpen = false">Sobre Mim</RouterLink>
-        <RouterLink to="/projetos" @click="menuOpen = false">Projetos</RouterLink>
-        <RouterLink to="/experiencias" @click="menuOpen = false">Experiências</RouterLink>
+        <RouterLink to="/sobre" @click="menuOpen = false">{{ labels[lang].about }}</RouterLink>
+        <RouterLink to="/projetos" @click="menuOpen = false">{{ labels[lang].projects }}</RouterLink>
+        <RouterLink to="/experiencias" @click="menuOpen = false">{{ labels[lang].experience }}</RouterLink>
+        <RouterLink to="/livros" @click="menuOpen = false">{{ labels[lang].books }}</RouterLink>
         <RouterLink to="/contato" class="nav-cta" @click="menuOpen = false">
-          Contato&nbsp;↗
+          {{ labels[lang].contact }}&nbsp;↗
         </RouterLink>
+        <button
+          type="button"
+          class="lang-switch mono"
+          :aria-label="labels[lang].toggle"
+          @click="toggleLanguage"
+        >
+          {{ nextLanguage }}
+        </button>
       </div>
 
       <button
@@ -31,8 +40,29 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useLanguage } from '../composables/useLanguage'
 
 const menuOpen = ref(false)
+const { lang, nextLanguage, toggleLanguage } = useLanguage()
+
+const labels = {
+  pt: {
+    about: 'Sobre Mim',
+    projects: 'Projetos',
+    experience: 'Experiências',
+    books: 'Livros',
+    contact: 'Contato',
+    toggle: 'Mudar site para inglês',
+  },
+  en: {
+    about: 'About Me',
+    projects: 'Projects',
+    experience: 'Experience',
+    books: 'Books',
+    contact: 'Contact',
+    toggle: 'Switch site to Portuguese',
+  },
+}
 </script>
 
 <style scoped>
@@ -131,6 +161,25 @@ const menuOpen = ref(false)
   color: #000 !important;
 }
 
+.lang-switch {
+  width: 42px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.lang-switch:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -190,6 +239,9 @@ const menuOpen = ref(false)
   }
   .nav-links a {
     font-size: 13px;
+  }
+  .lang-switch {
+    width: 52px;
   }
 }
 </style>

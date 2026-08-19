@@ -13,11 +13,11 @@
           </h1>
 
           <p class="hero-subtitle">
-            Engenharia de Software | Dados | Databricks | SQL
+            {{ content[lang].heroSubtitle }}
           </p>
 
           <div class="hero-btns">
-            <RouterLink to="/projetos" class="btn-primary mono">Ver Projetos ↓</RouterLink>
+            <RouterLink to="/projetos" class="btn-primary mono">{{ content[lang].projectsButton }}</RouterLink>
           </div>
         </div>
 
@@ -30,23 +30,10 @@
 
     <section class="about">
       <div class="about-grid">
-        <div class="about-lang">
-          <span class="lang-tag mono">🇧🇷 Português</span>
-          <p>
-            Estudante de Engenharia de Software na PUC Minas, direcionando minha formação
-            para Dados. Estou aprofundando meus estudos em SQL, Python, Databricks,
-            modelagem de dados e organização de informações para análise.
-          </p>
-          <RouterLink to="/sobre" class="about-link mono">Ler mais →</RouterLink>
-        </div>
-        <div class="about-lang">
-          <span class="lang-tag mono">🇺🇸 English</span>
-          <p>
-            Software Engineering student at PUC Minas, currently steering my studies toward Data.
-            I am deepening my knowledge in SQL, Python, Databricks, data modeling and
-            organizing information for analysis.
-          </p>
-          <RouterLink to="/sobre" class="about-link mono">Read more →</RouterLink>
+        <div class="about-lang featured">
+          <span class="lang-tag mono">{{ content[lang].languageTag }}</span>
+          <p>{{ content[lang].about }}</p>
+          <RouterLink to="/sobre" class="about-link mono">{{ content[lang].readMore }}</RouterLink>
         </div>
       </div>
     </section>
@@ -64,10 +51,30 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import '@splinetool/viewer'
+import { useLanguage } from '../composables/useLanguage'
+
+const { lang } = useLanguage()
+
+const content = {
+  pt: {
+    heroSubtitle: 'Engenharia de Software | Python | Databricks | SQL',
+    projectsButton: 'Ver Projetos ↓',
+    languageTag: 'BR Português',
+    about: 'Estudante de Engenharia de Software na PUC Minas, direcionando minha formação para Dados. Estou aprofundando meus estudos em SQL, Python, Databricks, modelagem de dados e organização de informações para análise.',
+    readMore: 'Ler mais →',
+  },
+  en: {
+    heroSubtitle: 'Software Engineering | Python | Databricks | SQL',
+    projectsButton: 'View Projects ↓',
+    languageTag: 'US English',
+    about: 'Software Engineering student at PUC Minas, currently steering my studies toward Data. I am deepening my knowledge in SQL, Python, Databricks, data modeling and organizing information for analysis.',
+    readMore: 'Read more →',
+  },
+}
 
 const skills = [
   'SQL', 'Python', 'Databricks', 'Java', 'HTML', 'CSS', 'JavaScript', 'C',
-  'Vue', 'Vite', 'Git', 'Docker',
+  'Vue', 'React', 'Node', 'Vite', 'Git', 'Docker',
 ]
 </script>
 
@@ -187,7 +194,7 @@ const skills = [
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .about-lang {
@@ -201,7 +208,7 @@ const skills = [
   overflow: hidden;
 }
 
-.about-lang:last-child {
+.about-lang.featured {
   border-right: none;
 }
 
