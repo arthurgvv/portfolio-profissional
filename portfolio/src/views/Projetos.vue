@@ -3,22 +3,22 @@
 
     <div class="page-header container">
       <span class="page-badge mono">PG 02</span>
-      <h1 class="page-title">Projetos</h1>
-      <p class="page-subtitle">Uma seleção de projetos desenvolvidos ao longo da minha trajetória.</p>
+      <h1 class="page-title">{{ content[lang].title }}</h1>
+      <p class="page-subtitle">{{ content[lang].subtitle }}</p>
     </div>
 
     <div class="projects-layout">
 
       <aside class="sidebar">
-        <div class="sidebar-label mono">Filtrar por</div>
+        <div class="sidebar-label mono">{{ content[lang].filterBy }}</div>
         <button
           v-for="cat in categories"
-          :key="cat"
+          :key="cat.value"
           class="sidebar-item mono"
-          :class="{ active: activeCategory === cat }"
-          @click="activeCategory = cat"
+          :class="{ active: activeCategory === cat.value }"
+          @click="activeCategory = cat.value"
         >
-          {{ cat }}
+          {{ cat.label[lang] }}
         </button>
       </aside>
 
@@ -40,7 +40,7 @@
                   <div class="gallery-viewport">
                     <img
                       :src="project.images[activeIndex[project.id] ?? 0]"
-                      :alt="project.name + ' screenshot ' + ((activeIndex[project.id] ?? 0) + 1)"
+                      :alt="project.name[lang] + ' screenshot ' + ((activeIndex[project.id] ?? 0) + 1)"
                       class="gallery-img"
                     />
 
@@ -68,15 +68,15 @@
                 </template>
                 <template v-else>
                   <div class="img-placeholder">
-                    <span class="img-placeholder-text mono">🖼️ Screenshots em breve</span>
+                    <span class="img-placeholder-text mono">{{ content[lang].screensSoon }}</span>
                   </div>
                 </template>
-                <span v-if="project.highlight" class="status-badge mono">● Destaque</span>
+                <span v-if="project.highlight" class="status-badge mono">● {{ content[lang].featured }}</span>
               </div>
 
               <div class="tl-card-body">
-                <h3 class="tl-card-title">{{ project.name }}</h3>
-                <p class="tl-card-desc">{{ project.description }}</p>
+                <h3 class="tl-card-title">{{ project.name[lang] }}</h3>
+                <p class="tl-card-desc">{{ project.description[lang] }}</p>
                 <div class="tech-badges">
                   <span
                     v-for="tech in project.techs"
@@ -90,7 +90,7 @@
         </TransitionGroup>
 
         <div v-if="filteredProjects.length === 0" class="empty-state mono">
-          Nenhum projeto nesta categoria ainda.
+          {{ content[lang].empty }}
         </div>
       </div>
 
@@ -100,9 +100,35 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
 
-const categories = ['Todos', 'Web App', 'Mobile', 'API / Back-end', 'Estudo']
-const activeCategory = ref('Todos')
+const { lang } = useLanguage()
+
+const content = {
+  pt: {
+    title: 'Projetos',
+    subtitle: 'Projetos desenvolvidos ao longo da minha trajetória acadêmica e técnica.',
+    filterBy: 'Filtrar por',
+    screensSoon: 'Screenshots em breve',
+    featured: 'Destaque',
+    empty: 'Nenhum projeto nesta categoria ainda.',
+  },
+  en: {
+    title: 'Projects',
+    subtitle: 'Projects developed throughout my academic and technical journey.',
+    filterBy: 'Filter by',
+    screensSoon: 'Screenshots coming soon',
+    featured: 'Featured',
+    empty: 'No projects in this category yet.',
+  },
+}
+
+const categories = [
+  { value: 'all', label: { pt: 'Todos', en: 'All' } },
+  { value: 'Web App', label: { pt: 'Web App', en: 'Web App' } },
+  { value: 'study', label: { pt: 'Estudo', en: 'Study' } },
+]
+const activeCategory = ref('all')
 const activeIndex = reactive({})
 
 function next(project) {
@@ -119,13 +145,38 @@ function abrirProjeto(link) {
 
 const projects = [
   {
-    id: 1,
-    year: '2025',
-    name: 'Sistema de Consultório Médico',
-    description: 'Sistema web desenvolvido em equipe com foco na gestão de consultório médico. Atuei na modelagem de dados e no desenvolvimento de consultas SQL, garantindo organização, consistência e eficiência no tratamento das informações.',
-    techs: ['Web App', 'HTML', 'CSS', 'JavaScript', 'PostgreSQL'],
+    id: 3,
+    year: '2026',
+    name: {
+      pt: 'Seri Estudio',
+      en: 'Seri Studio',
+    },
+    description: {
+      pt: 'Plataforma web desenvolvida em equipe para digitalizar o fluxo de pedidos de um estúdio de serigrafia sob encomenda. O sistema permite cadastro e login, criação de ficha técnica, envio de arte, acompanhamento de pedidos, gestão administrativa e uma pré-visualização 3D dos produtos.',
+      en: 'Team-built web platform created to digitize the order flow of a custom screen-printing studio. The system includes signup and login, technical sheet creation, artwork upload, order tracking, administrative management and a 3D product preview.',
+    },
+    techs: ['Web App', 'React', 'TypeScript', 'Three.js', 'Spring Boot', 'PostgreSQL', 'Docker'],
     category: 'Web App',
     highlight: true,
+    link: 'https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti4-3126100-seri-estudio',
+    images: [
+      new URL('../assets/styles/seri-estudio-home.png', import.meta.url).href,
+    ],
+  },
+  {
+    id: 1,
+    year: '2025',
+    name: {
+      pt: 'Sistema de Consultório Médico',
+      en: 'Medical Clinic System',
+    },
+    description: {
+      pt: 'Sistema web desenvolvido em equipe com foco na gestão de consultório médico. Atuei na modelagem de dados e no desenvolvimento de consultas SQL, garantindo organização, consistência e eficiência no tratamento das informações.',
+      en: 'Team-built web system focused on medical clinic management. I worked on data modeling and SQL query development, ensuring organization, consistency and efficiency in information handling.',
+    },
+    techs: ['Web App', 'HTML', 'CSS', 'JavaScript', 'SQL'],
+    category: 'Web App',
+    highlight: false,
     link: 'https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti3-9545100-consultoriomedico',
     images: [
   new URL('../assets/styles/consul.png', import.meta.url).href
@@ -134,9 +185,15 @@ const projects = [
   {
   id: 2,
   year: '2025',
-  name: "Finesse Sportz",
-  description: "Sistema web desenvolvido para uma loja de artigos esportivos, com foco em catálogo dinâmico e experiência do usuário. Atuei como desenvolvedor, contribuindo na implementação das funcionalidades, organização do código e evolução da aplicação em equipe.",
-  techs: ['Web App','React', 'Java','JavaScript', 'CSS',],
+  name: {
+    pt: 'Finesse Sportz',
+    en: 'Finesse Sportz',
+  },
+  description: {
+    pt: 'Sistema web desenvolvido para uma loja de artigos esportivos, com foco em catálogo dinâmico e experiência do usuário. Atuei como desenvolvedor, contribuindo na implementação das funcionalidades, organização do código e evolução da aplicação em equipe.',
+    en: 'Web system developed for a sporting goods store, focused on a dynamic catalog and user experience. I worked as a developer, contributing to feature implementation, code organization and team-based application evolution.',
+  },
+  techs: ['Web App', 'React', 'Java', 'JavaScript', 'CSS'],
   category: 'Web App',
   highlight: false,
   link: "https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti2-3740100-finesse-sportz",
@@ -147,7 +204,7 @@ const projects = [
 ]
 
 const filteredProjects = computed(() => {
-  if (activeCategory.value === 'Todos') return projects
+  if (activeCategory.value === 'all') return projects
   return projects.filter((p) => p.category === activeCategory.value)
 })
 </script>

@@ -3,14 +3,14 @@
 
     <div class="page-header container">
       <span class="page-badge mono">PG 04</span>
-      <h1 class="page-title">Contato</h1>
-      <p class="page-subtitle">Quer conversar sobre um projeto ou oportunidade? Manda uma mensagem!</p>
+      <h1 class="page-title">{{ content[lang].title }}</h1>
+      <p class="page-subtitle">{{ content[lang].subtitle }}</p>
     </div>
 
     <div class="contact-layout container">
 
       <div class="contact-left">
-        <p class="section-label mono">Redes sociais</p>
+        <p class="section-label mono">{{ content[lang].socials }}</p>
         <div class="social-grid">
           <a
             v-for="social in socials"
@@ -30,17 +30,18 @@
       </div>
 
       <div class="contact-right">
-        <p class="form-label mono">Enviar mensagem</p>
+        <p class="form-label mono">{{ content[lang].sendMessage }}</p>
 
         <form @submit.prevent="handleSubmit" class="contact-form" novalidate>
 
           <div class="form-field">
-            <label class="field-label mono" for="name">Nome</label>
+            <label class="field-label mono" for="name">{{ content[lang].name }}</label>
             <input
               id="name"
+              name="name"
               v-model.trim="form.name"
               type="text"
-              placeholder="Seu nome completo"
+              :placeholder="content[lang].namePlaceholder"
               autocomplete="name"
               :class="{ 'input-error': errors.name }"
               @blur="validateField('name')"
@@ -54,6 +55,7 @@
             <label class="field-label mono" for="email">E-mail</label>
             <input
               id="email"
+              name="email"
               v-model.trim="form.email"
               type="email"
               placeholder="seu@email.com"
@@ -67,12 +69,13 @@
           </div>
 
           <div class="form-field">
-            <label class="field-label mono" for="message">Mensagem</label>
+            <label class="field-label mono" for="message">{{ content[lang].message }}</label>
             <textarea
               id="message"
+              name="message"
               v-model.trim="form.message"
               rows="5"
-              placeholder="Escreva sua mensagem..."
+              :placeholder="content[lang].messagePlaceholder"
               :class="{ 'input-error': errors.message }"
               @blur="validateField('message')"
             ></textarea>
@@ -83,7 +86,7 @@
 
           <button type="submit" class="submit-btn mono" :disabled="sending">
             <span v-if="sending" class="spinner"></span>
-            {{ sending ? 'Enviando...' : 'Enviar mensagem →' }}
+            {{ sending ? content[lang].sending : content[lang].submit }}
           </button>
 
           <Transition name="fade">
@@ -103,13 +106,52 @@
 
 <script setup>
 
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
+import { useLanguage } from '../composables/useLanguage'
 
 const EJS_SERVICE  = 'service_wsx9fqh'
 const EJS_TEMPLATE = 'template_oz269bd'
 const EJS_KEY      = 'VZBRhUulAKNQg7Kd2'
 
+const { lang } = useLanguage()
+
+const content = {
+  pt: {
+    title: 'Contato',
+    subtitle: 'Quer conversar sobre um projeto ou oportunidade? Manda uma mensagem!',
+    socials: 'Redes sociais',
+    sendMessage: 'Enviar mensagem',
+    name: 'Nome',
+    namePlaceholder: 'Seu nome completo',
+    message: 'Mensagem',
+    messagePlaceholder: 'Escreva sua mensagem...',
+    sending: 'Enviando...',
+    submit: 'Enviar mensagem →',
+    nameError: 'Nome deve ter ao menos 2 caracteres.',
+    emailError: 'Informe um e-mail válido.',
+    messageError: 'Escreva uma mensagem.',
+    success: '✓ Mensagem enviada! Em breve retornarei o contato.',
+    error: '✗ Erro ao enviar.',
+  },
+  en: {
+    title: 'Contact',
+    subtitle: 'Want to talk about a project or opportunity? Send me a message.',
+    socials: 'Social links',
+    sendMessage: 'Send message',
+    name: 'Name',
+    namePlaceholder: 'Your full name',
+    message: 'Message',
+    messagePlaceholder: 'Write your message...',
+    sending: 'Sending...',
+    submit: 'Send message →',
+    nameError: 'Name must have at least 2 characters.',
+    emailError: 'Enter a valid email address.',
+    messageError: 'Write a message.',
+    success: '✓ Message sent! I will get back to you soon.',
+    error: '✗ Error sending.',
+  },
+}
 
 const socials = [
   {
@@ -156,13 +198,13 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function validateField(field) {
   if (field === 'name') {
-    errors.name = form.name.length < 2 ? 'Nome deve ter ao menos 2 caracteres.' : ''
+    errors.name = form.name.length < 2 ? content[lang.value].nameError : ''
   }
   if (field === 'email') {
-    errors.email = !emailRegex.test(form.email) ? 'Informe um e-mail válido.' : ''
+    errors.email = !emailRegex.test(form.email) ? content[lang.value].emailError : ''
   }
   if (field === 'message') {
-    errors.message = form.message.length < 1 ? 'Escreva uma mensagem.' : ''
+    errors.message = form.message.length < 1 ? content[lang.value].messageError : ''
   }
 }
 
@@ -180,22 +222,47 @@ async function handleSubmit() {
   feedback.value = null
 
   try {
-    await emailjs.sendForm(
-  EJS_SERVICE,
-  EJS_TEMPLATE,
-  document.querySelector('.contact-form'),
-  EJS_KEY
-)
+    await emailjs.send(
+      EJS_SERVICE,
+      EJS_TEMPLATE,
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        from_name: form.name,
+        from_email: form.email,
+        reply_to: form.email,
+        user_name: form.name,
+        user_email: form.email,
+        title: 'Nova mensagem pelo portfolio',
+        subject: 'Nova mensagem pelo portfolio',
+        to_name: 'Arthur Gonçalves',
+        contact_name: form.name,
+        contact_email: form.email,
+        contact_message: form.message,
+      },
+      EJS_KEY
+    )
 
-    feedback.value = { type: 'success', text: '✓ Mensagem enviada! Em breve retornarei o contato.' }
+    feedback.value = { type: 'success', text: content[lang.value].success }
     form.name = ''
     form.email = ''
     form.message = ''
     setTimeout(() => { feedback.value = null }, 7000)
   } catch (error) {
-  console.error("ERRO EMAILJS:", error)
-  feedback.value = { type: 'error', text: '✗ Erro ao enviar. Tente novamente.' }
+    console.error('ERRO EMAILJS:', error)
+    feedback.value = { type: 'error', text: getEmailErrorMessage(error) }
+  } finally {
+    sending.value = false
+  }
 }
+
+function getEmailErrorMessage(error) {
+  const status = error?.status ? ` ${error.status}` : ''
+  const details = error?.text || error?.message || ''
+  const suffix = details ? ` ${details}` : ''
+
+  return `${content[lang.value].error}${status}.${suffix}`
 }
 </script>
 
