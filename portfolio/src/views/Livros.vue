@@ -1,7 +1,6 @@
 <template>
   <div class="books-page">
     <div class="page-header container">
-      <span class="page-badge mono">PG 05</span>
       <div class="header-row">
         <div>
           <h1 class="page-title">{{ content[lang].title }}</h1>
@@ -9,7 +8,6 @@
             {{ content[lang].subtitle }}
           </p>
         </div>
-        <span class="header-mark mono">BOOKS / LOG</span>
       </div>
     </div>
 
@@ -52,7 +50,16 @@
     </div>
 
     <main class="books-grid container">
-      <article v-for="book in filteredBooks" :key="book.id" class="book-card">
+      <a
+        v-for="book in filteredBooks"
+        :key="book.id"
+        :href="book.amazonUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="book-card"
+        :title="content[lang].buyOnAmazon"
+        :aria-label="`${book.title[lang]} — ${content[lang].buyOnAmazon}`"
+      >
         <div class="book-cover" :class="`cover-${book.color}`">
           <img :src="book.cover" :alt="book.title[lang]" class="cover-image" />
         </div>
@@ -82,10 +89,10 @@
 
           <div class="book-footer">
             <span class="book-tag mono">{{ book.tag[lang] }}</span>
-            <span class="book-arrow" aria-hidden="true">↗</span>
+            <span class="book-buy mono">{{ content[lang].buyOnAmazon }} ↗</span>
           </div>
         </div>
-      </article>
+      </a>
 
       <div v-if="filteredBooks.length === 0" class="empty-state mono">
         {{ content[lang].empty }}
@@ -117,6 +124,7 @@ const content = {
     toolbarDescription: 'Um registro das leituras e das próximas descobertas.',
     filterLabel: 'Filtrar livros por status',
     progress: 'Progresso',
+    buyOnAmazon: 'Comprar na Amazon',
     empty: 'Nenhum livro neste filtro ainda.',
   },
   en: {
@@ -131,6 +139,7 @@ const content = {
     toolbarDescription: 'A record of readings and next discoveries.',
     filterLabel: 'Filter books by status',
     progress: 'Progress',
+    buyOnAmazon: 'Buy on Amazon',
     empty: 'No books in this filter yet.',
   },
 }
@@ -177,8 +186,12 @@ function countByStatus(status) {
 .header-row {
   display: flex;
   align-items: end;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-row > div {
+  width: 100%;
 }
 
 .page-title {
@@ -200,6 +213,7 @@ function countByStatus(status) {
 }
 
 .books-summary {
+  max-width: none;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--border);
@@ -209,10 +223,12 @@ function countByStatus(status) {
 .summary-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2px;
   min-height: 92px;
   padding: 20px 24px;
   border-right: 1px solid var(--border);
+  text-align: center;
 }
 
 .summary-card:last-child {
@@ -239,30 +255,34 @@ function countByStatus(status) {
 .books-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   gap: 24px;
   padding-top: 36px;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .toolbar-label {
   margin-bottom: 4px;
   color: var(--text);
-  font-size: 11px;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .toolbar-description {
   color: var(--text-muted);
   font-size: 12px;
+  text-align: center;
 }
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: center;
   gap: 6px;
 }
 
@@ -295,6 +315,9 @@ function countByStatus(status) {
   border-radius: var(--radius-card);
   background: var(--surface-alt);
   box-shadow: var(--shadow-main);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
   transition: border-color 0.2s, transform 0.2s;
 }
 
@@ -321,6 +344,7 @@ function countByStatus(status) {
 
 .book-body {
   padding: 18px 20px 20px;
+  text-align: center;
 }
 
 .book-topline,
@@ -330,6 +354,11 @@ function countByStatus(status) {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+.book-topline,
+.book-footer {
+  justify-content: center;
 }
 
 .status,
@@ -419,6 +448,18 @@ function countByStatus(status) {
   color: var(--accent);
   font-size: 18px;
   line-height: 1;
+}
+
+.book-buy {
+  color: var(--accent);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.book-card:hover .book-buy {
+  color: #d9ff70;
 }
 
 .empty-state {

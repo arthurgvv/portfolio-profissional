@@ -2,7 +2,6 @@
   <div class="exp-page">
 
     <div class="page-header container">
-      <span class="page-badge mono">PG 03</span>
       <h1 class="page-title">{{ content[lang].title }}</h1>
       <p class="page-subtitle">{{ content[lang].subtitle }}</p>
     </div>
@@ -171,10 +170,10 @@ const filteredExperiences = computed(() => {
 
 .filters {
   display: flex;
+  justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
   margin-bottom: 24px;
 }
 

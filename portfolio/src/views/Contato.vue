@@ -2,7 +2,6 @@
   <div class="contact-page">
 
     <div class="page-header container">
-      <span class="page-badge mono">PG 04</span>
       <h1 class="page-title">{{ content[lang].title }}</h1>
       <p class="page-subtitle">{{ content[lang].subtitle }}</p>
     </div>

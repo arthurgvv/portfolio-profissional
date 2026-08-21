@@ -23,6 +23,7 @@ export const books = [
     tag: { pt: 'CONCLUÍDO', en: 'DONE' },
     color: 'violet',
     cover: fluenciaCover,
+    amazonUrl: 'https://www.amazon.com.br/s?k=9788550826189',
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ export const books = [
     tag: { pt: 'EM ANDAMENTO', en: 'IN PROGRESS' },
     color: 'lime',
     cover: decifrandoCover,
+    amazonUrl: 'https://www.amazon.com.br/s?k=9788575229217',
   },
   {
     id: 3,
@@ -54,5 +56,6 @@ export const books = [
     tag: { pt: 'NA FILA', en: 'QUEUED' },
     color: 'blue',
     cover: fundamentosCover,
+    amazonUrl: 'https://www.amazon.com.br/s?k=9788575228760',
   },
 ]
