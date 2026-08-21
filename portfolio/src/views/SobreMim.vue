@@ -2,7 +2,6 @@
   <div class="sobre-page">
 
     <div class="page-header container">
-      <span class="page-badge mono">PG 01</span>
       <div class="header-row">
         <h1 class="page-title">{{ content[lang].title }}</h1>
       </div>
@@ -307,10 +306,11 @@ onBeforeUnmount(() => {
 .header-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .page-title {

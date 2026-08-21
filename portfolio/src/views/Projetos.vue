@@ -2,7 +2,6 @@
   <div class="projects-page">
 
     <div class="page-header container">
-      <span class="page-badge mono">PG 02</span>
       <h1 class="page-title">{{ content[lang].title }}</h1>
       <p class="page-subtitle">{{ content[lang].subtitle }}</p>
     </div>
@@ -95,6 +94,13 @@
       </div>
 
     </div>
+
+    <section class="project-stack" aria-label="Stack tecnológica">
+      <div class="container project-stack-inner">
+        <span class="skills-label mono">Stack →</span>
+        <span v-for="skill in skills" :key="skill" class="skill-badge mono">{{ skill }}</span>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -103,6 +109,11 @@ import { ref, reactive, computed } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { lang } = useLanguage()
+
+const skills = [
+  'SQL', 'Python', 'Databricks', 'Java', 'HTML', 'CSS', 'JavaScript', 'C',
+  'Vue', 'React', 'Node', 'Vite', 'Git', 'Docker',
+]
 
 const content = {
   pt: {
@@ -215,6 +226,46 @@ const filteredProjects = computed(() => {
   padding-bottom: 64px;
 }
 
+.project-stack {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 32px;
+}
+
+.project-stack-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-stack .skills-label {
+  margin-right: 4px;
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.project-stack .skill-badge {
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 11px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-stack .skill-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .page-header {
   padding: 52px 32px 32px;
 }
@@ -242,17 +293,18 @@ const filteredProjects = computed(() => {
 }
 
 .projects-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  border-top: 1px solid var(--border);
-  min-height: 400px;
+  display: block;
 }
 
 .sidebar {
-  border-right: 1px solid var(--border);
-  padding: 24px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 32px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
@@ -261,7 +313,7 @@ const filteredProjects = computed(() => {
   color: var(--text-muted);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin: 0 10px 0 0;
 }
 
 .sidebar-item {
@@ -287,51 +339,36 @@ const filteredProjects = computed(() => {
 }
 
 .timeline-area {
-  padding: 32px;
-  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 32px 64px;
 }
 
 .timeline-line {
-  position: absolute;
-  left: 100px;
-  top: 32px;
-  bottom: 32px;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent), var(--border));
-  border-radius: 2px;
+  display: none;
 }
 
 .timeline-items {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .tl-item {
-  display: flex;
-  gap: 22px;
-  align-items: flex-start;
+  display: block;
   position: relative;
 }
 
 .tl-year {
-  width: 44px;
+  width: auto;
   font-size: 10px;
   color: var(--text-muted);
-  text-align: right;
-  padding-top: 7px;
-  flex-shrink: 0;
+  text-align: left;
+  padding: 0 0 9px 2px;
 }
 
 .tl-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--placeholder-light);
-  border: 2px solid var(--surface-dark);
-  flex-shrink: 0;
-  margin-top: 5px;
-  transition: background 0.2s, box-shadow 0.2s;
+  display: none;
 }
 .tl-dot.active {
   background: var(--accent);
@@ -339,12 +376,12 @@ const filteredProjects = computed(() => {
 }
 
 .tl-card {
-  flex: 1;
+  width: 100%;
   background: var(--surface-alt);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-card);
   overflow: hidden;
-  max-width: 580px;
+  max-width: none;
   transition: border-color 0.2s, transform 0.2s;
   box-shadow: var(--shadow-main);
 }
@@ -447,6 +484,7 @@ const filteredProjects = computed(() => {
 
 .tl-card-body {
   padding: 16px 20px 20px;
+  text-align: center;
 }
 
 .tl-card-title {
@@ -467,6 +505,7 @@ const filteredProjects = computed(() => {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tech-badge {
@@ -502,33 +541,25 @@ const filteredProjects = computed(() => {
 }
 
 @media (max-width: 900px) {
-  .timeline-line { left: 76px; }
+  .timeline-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
-  .projects-layout {
-    grid-template-columns: 1fr;
-  }
   .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 16px;
+    padding: 16px 20px;
     gap: 8px;
   }
   .sidebar-label {
     width: 100%;
-    margin-bottom: 0;
+    margin: 0 0 2px;
+    text-align: center;
   }
-  .timeline-line { left: 80px; }
 }
 
 @media (max-width: 480px) {
   .timeline-area {
     padding: 24px 16px;
   }
-  .timeline-line { left: 64px; }
-  .tl-card { max-width: 100%; }
+  .timeline-items { grid-template-columns: 1fr; }
 }
 </style>

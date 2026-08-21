@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -67,6 +68,15 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.page-header .page-subtitle {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* Page transitions */

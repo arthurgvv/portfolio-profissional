@@ -2,15 +2,15 @@
   <nav class="navbar">
     <div class="nav-inner">
       <RouterLink to="/" class="nav-logo">
-        <span class="bracket">&lt;</span>ArthurGVv<span class="bracket">/&gt;</span>
+        <span class="bracket">&lt;</span>AG<span class="bracket">/&gt;</span>
       </RouterLink>
 
       <div class="nav-links" :class="{ open: menuOpen }">
-        <RouterLink to="/sobre" @click="menuOpen = false">{{ labels[lang].about }}</RouterLink>
-        <RouterLink to="/projetos" @click="menuOpen = false">{{ labels[lang].projects }}</RouterLink>
-        <RouterLink to="/experiencias" @click="menuOpen = false">{{ labels[lang].experience }}</RouterLink>
-        <RouterLink to="/livros" @click="menuOpen = false">{{ labels[lang].books }}</RouterLink>
-        <RouterLink to="/contato" class="nav-cta" @click="menuOpen = false">
+        <RouterLink to="/#sobre" @click="menuOpen = false">{{ labels[lang].about }}</RouterLink>
+        <RouterLink to="/#projetos" @click="menuOpen = false">{{ labels[lang].projects }}</RouterLink>
+        <RouterLink to="/#experiencias" @click="menuOpen = false">{{ labels[lang].experience }}</RouterLink>
+        <RouterLink to="/#livros" @click="menuOpen = false">{{ labels[lang].books }}</RouterLink>
+        <RouterLink to="/#contato" class="nav-cta" @click="menuOpen = false">
           {{ labels[lang].contact }}&nbsp;↗
         </RouterLink>
         <button
@@ -76,7 +76,6 @@ const labels = {
   background: rgba(13, 13, 13, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
 }
 
 .nav-inner {
@@ -86,10 +85,13 @@ const labels = {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
 }
 
 .nav-logo {
+  position: absolute;
+  left: 32px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 15px;
   font-weight: 700;
@@ -108,6 +110,7 @@ const labels = {
   display: flex;
   align-items: center;
   gap: 32px;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -140,7 +143,6 @@ const labels = {
   color: var(--text);
 }
 
-.nav-links a.router-link-exact-active::after,
 .nav-links a:hover::after {
   transform: scaleX(1);
 }
@@ -212,8 +214,14 @@ const labels = {
 }
 
 @media (max-width: 768px) {
+  .nav-logo {
+    left: 20px;
+  }
+
   .hamburger {
     display: flex;
+    position: absolute;
+    right: 20px;
   }
 
   .nav-links {
