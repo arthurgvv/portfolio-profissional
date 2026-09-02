@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@splinetool/viewer": "^1.12.68",
     "vue": "^3.4.0",
     "vue-router": "^4.3.0"
   },

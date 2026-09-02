@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <section id="inicio" class="hero snap-section">
-      <div class="spline-bg">
-        <spline-viewer url="https://prod.spline.design/KI4OaoX6CFEX9D0k/scene.splinecode"></spline-viewer>
-      </div>
       <div class="container hero-inner">
         <div class="hero-left">
           <h1 class="hero-title">Arthur <span class="accent">Gonçalves</span></h1>
@@ -38,7 +35,6 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import '@splinetool/viewer'
 import { useLanguage } from '../composables/useLanguage'
 import SobreMim from './SobreMim.vue'
 import Projetos from './Projetos.vue'
@@ -90,8 +86,6 @@ const content = {
   background: radial-gradient(circle at 78% 36%, rgba(200, 245, 74, 0.08), transparent 32%);
 }
 
-.spline-bg { position: absolute; inset: 0; z-index: 0; }
-.spline-bg spline-viewer { width: 100%; height: 100%; pointer-events: none; }
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); gap: clamp(32px, 6vw, 64px); align-items: center; pointer-events: none; }
 .hero-inner a, .hero-inner button, .hero-inner img { pointer-events: auto; }
 .hero-left { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
@@ -112,7 +106,6 @@ const content = {
 .about-link:hover { opacity: 1; }
 @media (max-width: 768px) {
   .hero { padding: 32px 0 44px; }
-  .spline-bg { display: none; }
   .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .hero-right { order: -1; }
   .avatar-img { width: min(68vw, 260px); }
