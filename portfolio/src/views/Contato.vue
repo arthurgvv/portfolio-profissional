@@ -299,9 +299,14 @@ function getEmailErrorMessage(error) {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
   gap: 64px;
   align-items: start;
+}
+
+.contact-left,
+.contact-right {
+  min-width: 0;
 }
 
 .section-label {
@@ -402,6 +407,7 @@ function getEmailErrorMessage(error) {
 
 input,
 textarea {
+  width: 100%;
   background: #1c1c1c;
   border: 1px solid var(--border-light);
   border-radius: 8px;
@@ -520,12 +526,41 @@ textarea::placeholder {
     gap: 40px;
   }
 }
+
+@media (max-width: 600px) {
+  .page-header {
+    padding: 40px 20px 28px;
+  }
+
+  .contact-layout {
+    gap: 32px;
+  }
+
+  input,
+  textarea {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  textarea {
+    min-height: 132px;
+  }
+
+  .submit-btn {
+    min-height: 48px;
+    height: auto;
+    padding: 12px 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .social-grid {
     grid-template-columns: 1fr;
   }
-  .page-header {
-    padding: 40px 20px 28px;
+
+  .social-card {
+    min-width: 0;
+    padding: 14px;
   }
 }
 </style>

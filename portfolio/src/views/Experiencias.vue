@@ -241,6 +241,7 @@ const filteredExperiences = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .exp-role-row {
@@ -333,6 +334,20 @@ const filteredExperiences = computed(() => {
 }
 
 @media (max-width: 600px) {
+  .page-header {
+    padding: 40px 20px 28px;
+  }
+
+  .filters {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .filter-btn {
+    min-height: 44px;
+    padding: 9px 14px;
+  }
+
   .exp-card {
     grid-template-columns: 1fr;
     padding: 16px;
@@ -345,6 +360,13 @@ const filteredExperiences = computed(() => {
     display: inline-block;
     margin-bottom: 8px;
     align-self: flex-start;
+  }
+
+  .exp-role,
+  .exp-company,
+  .exp-period,
+  .exp-desc {
+    overflow-wrap: anywhere;
   }
 }
 </style>

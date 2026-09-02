@@ -229,6 +229,7 @@ function countByStatus(status) {
   padding: 20px 24px;
   border-right: 1px solid var(--border);
   text-align: center;
+  min-width: 0;
 }
 
 .summary-card:last-child {
@@ -491,12 +492,17 @@ function countByStatus(status) {
   }
 
   .books-toolbar {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
   .filters {
-    justify-content: start;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    min-height: 44px;
+    padding: 9px 14px;
   }
 }
 
@@ -514,11 +520,23 @@ function countByStatus(status) {
     grid-template-columns: 1fr;
   }
 
+  .book-cover {
+    min-height: 0;
+  }
+
+  .book-note {
+    min-height: 0;
+  }
+
 }
 
 @media (max-width: 480px) {
   .summary-card {
     padding: 16px;
+  }
+
+  .empty-state {
+    padding: 28px 16px;
   }
 }
 </style>

@@ -58,6 +58,13 @@ const year = new Date().getFullYear()
     flex-direction: column;
     text-align: center;
     gap: 12px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 </style>

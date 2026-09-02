@@ -557,9 +557,14 @@ onBeforeUnmount(() => {
 /* Layout */
 .sobre-layout {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
   gap: 48px;
   align-items: start;
+}
+
+.bio-section,
+.sobre-aside {
+  min-width: 0;
 }
 
 /* Bio */
@@ -677,6 +682,10 @@ onBeforeUnmount(() => {
   align-items: flex-start;
 }
 
+.edu-card > div {
+  min-width: 0;
+}
+
 .edu-icon {
   font-size: 22px;
   margin-top: 2px;
@@ -732,6 +741,7 @@ onBeforeUnmount(() => {
 @media (max-width: 900px) {
   .sobre-layout {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
@@ -741,7 +751,7 @@ onBeforeUnmount(() => {
   }
   .activity-card {
     padding: 20px;
-    min-height: 228px;
+    min-height: 0;
   }
   .activity-topline,
   .activity-footer {
@@ -751,17 +761,27 @@ onBeforeUnmount(() => {
     align-items: flex-start;
   }
   .skill-row {
-    grid-template-columns: 120px 1fr 32px;
+    grid-template-columns: minmax(80px, 120px) minmax(64px, 1fr) 32px;
   }
-  .highlights {
-    gap: 20px;
+
+  .activity-tab {
+    width: 44px;
+    height: 44px;
+  }
+
+  .bio-card {
+    padding: 18px;
+  }
+
+  .aside-block {
+    padding: 18px;
   }
 }
 
 @media (max-width: 480px) {
   .header-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .activity-topline,
   .activity-footer,
@@ -769,7 +789,21 @@ onBeforeUnmount(() => {
     flex-direction: column;
   }
   .activity-tabs {
+    width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .activity-content {
+    padding-bottom: 16px;
+  }
+
+  .activity-copy h2,
+  .activity-copy p,
+  .edu-course,
+  .edu-inst,
+  .edu-period {
+    overflow-wrap: anywhere;
   }
 }
 </style>

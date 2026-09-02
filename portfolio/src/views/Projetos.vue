@@ -32,7 +32,15 @@
           >
             <div class="tl-year mono">{{ project.year }}</div>
             <div class="tl-dot" :class="{ active: project.highlight }"></div>
-            <div class="tl-card" :class="{ featured: project.highlight }"@click="abrirProjeto(project.link)"style="cursor: pointer;">
+            <div
+              class="tl-card"
+              :class="{ featured: project.highlight }"
+              role="link"
+              tabindex="0"
+              @click="abrirProjeto(project.link)"
+              @keydown.enter="abrirProjeto(project.link)"
+              @keydown.space.prevent="abrirProjeto(project.link)"
+            >
 
               <div class="tl-card-gallery">
                 <template v-if="project.images && project.images.length > 0">
@@ -229,7 +237,7 @@ const filteredProjects = computed(() => {
 .project-stack {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 20px 32px;
+  padding: 20px 0;
 }
 
 .project-stack-inner {
@@ -384,6 +392,7 @@ const filteredProjects = computed(() => {
   max-width: none;
   transition: border-color 0.2s, transform 0.2s;
   box-shadow: var(--shadow-main);
+  cursor: pointer;
 }
 .tl-card:hover {
   border-color: rgba(200, 245, 74, 0.2);
@@ -406,7 +415,8 @@ const filteredProjects = computed(() => {
 .gallery-img {
   display: block;
   width: 100%;
-  height: 300px;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: contain;
 }
 
@@ -545,6 +555,10 @@ const filteredProjects = computed(() => {
 }
 
 @media (max-width: 768px) {
+  .page-header {
+    padding: 40px 20px 28px;
+  }
+
   .sidebar {
     padding: 16px 20px;
     gap: 8px;
@@ -554,12 +568,39 @@ const filteredProjects = computed(() => {
     margin: 0 0 2px;
     text-align: center;
   }
+
+  .sidebar-item {
+    min-height: 44px;
+  }
+
+  .timeline-area {
+    padding: 28px 20px 48px;
+  }
+
+  .gallery-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-items {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
   .timeline-area {
     padding: 24px 16px;
   }
-  .timeline-items { grid-template-columns: 1fr; }
+
+  .tl-card-body {
+    padding: 16px;
+  }
+
+  .tl-card-desc,
+  .tl-card-title {
+    overflow-wrap: anywhere;
+  }
 }
 </style>

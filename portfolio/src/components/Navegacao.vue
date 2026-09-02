@@ -5,7 +5,7 @@
         <span class="bracket">&lt;</span>AG<span class="bracket">/&gt;</span>
       </RouterLink>
 
-      <div class="nav-links" :class="{ open: menuOpen }">
+      <div id="primary-navigation" class="nav-links" :class="{ open: menuOpen }">
         <RouterLink to="/#sobre" @click="menuOpen = false">{{ labels[lang].about }}</RouterLink>
         <RouterLink to="/#projetos" @click="menuOpen = false">{{ labels[lang].projects }}</RouterLink>
         <RouterLink to="/#experiencias" @click="menuOpen = false">{{ labels[lang].experience }}</RouterLink>
@@ -24,21 +24,32 @@
       </div>
 
       <button
+        type="button"
         class="hamburger"
         :class="{ open: menuOpen }"
         @click="menuOpen = !menuOpen"
-        aria-label="Abrir menu"
+        :aria-label="menuOpen ? labels[lang].closeMenu : labels[lang].openMenu"
+        :aria-expanded="menuOpen"
+        aria-controls="primary-navigation"
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
+
+      <button
+        v-if="menuOpen"
+        type="button"
+        class="nav-backdrop"
+        :aria-label="labels[lang].closeMenu"
+        @click="menuOpen = false"
+      ></button>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
 
@@ -53,6 +64,8 @@ const labels = {
     books: 'Livros',
     contact: 'Contato',
     toggle: 'Mudar site para inglês',
+    openMenu: 'Abrir menu',
+    closeMenu: 'Fechar menu',
   },
   en: {
     about: 'About Me',
@@ -61,8 +74,33 @@ const labels = {
     books: 'Books',
     contact: 'Contact',
     toggle: 'Switch site to Portuguese',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
   },
 }
+
+function closeMenuOnDesktop() {
+  if (window.innerWidth > 768) menuOpen.value = false
+}
+
+function closeMenuOnEscape(event) {
+  if (event.key === 'Escape') menuOpen.value = false
+}
+
+watch(menuOpen, (isOpen) => {
+  document.body.classList.toggle('menu-open', isOpen)
+})
+
+onMounted(() => {
+  window.addEventListener('resize', closeMenuOnDesktop)
+  window.addEventListener('keydown', closeMenuOnEscape)
+})
+
+onBeforeUnmount(() => {
+  document.body.classList.remove('menu-open')
+  window.removeEventListener('resize', closeMenuOnDesktop)
+  window.removeEventListener('keydown', closeMenuOnEscape)
+})
 </script>
 
 <style scoped>
@@ -213,15 +251,32 @@ const labels = {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+.nav-backdrop {
+  display: none;
+}
+
+:global(body.menu-open) {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
+  .nav-inner {
+    justify-content: space-between;
+    padding-right: max(20px, env(safe-area-inset-right));
+    padding-left: max(20px, env(safe-area-inset-left));
+  }
+
   .nav-logo {
-    left: 20px;
+    position: static;
   }
 
   .hamburger {
     display: flex;
-    position: absolute;
-    right: 20px;
+    position: static;
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    align-items: center;
   }
 
   .nav-links {
@@ -232,12 +287,16 @@ const labels = {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 32px;
-    gap: 20px;
+    align-items: stretch;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    padding: 16px max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+    gap: 4px;
     transform: translateY(-110%);
     opacity: 0;
     pointer-events: none;
+    z-index: 2;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   .nav-links.open {
@@ -246,10 +305,33 @@ const labels = {
     pointer-events: all;
   }
   .nav-links a {
-    font-size: 13px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 0 4px;
   }
+
+  .nav-cta {
+    justify-content: center;
+    margin-top: 4px;
+  }
+
   .lang-switch {
     width: 52px;
+    height: 44px;
+    margin-top: 4px;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 64px 0 0;
+    z-index: 1;
+    width: 100%;
+    height: calc(100dvh - 64px);
+    background: rgba(0, 0, 0, 0.62);
+    cursor: default;
   }
 }
 </style>
