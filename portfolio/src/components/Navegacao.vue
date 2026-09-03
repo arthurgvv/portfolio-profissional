@@ -13,14 +13,26 @@
         <RouterLink to="/#contato" class="nav-cta" @click="menuOpen = false">
           {{ labels[lang].contact }}&nbsp;↗
         </RouterLink>
-        <button
-          type="button"
-          class="lang-switch mono"
-          :aria-label="labels[lang].toggle"
-          @click="toggleLanguage"
-        >
-          {{ nextLanguage }}
-        </button>
+        <div class="nav-actions">
+          <button
+            type="button"
+            class="lang-switch mono"
+            :aria-label="labels[lang].toggle"
+            @click="toggleLanguage"
+          >
+            {{ nextLanguage }}
+          </button>
+          <a
+            class="resume-download mono"
+            href="/Curriculo-ArthurGoncalvesVieira.pdf"
+            download
+            :aria-label="labels[lang].resumeDownload"
+            @click="menuOpen = false"
+          >
+            <span aria-hidden="true">↓</span>
+            <span>{{ labels[lang].resume }}</span>
+          </a>
+        </div>
       </div>
 
       <button
@@ -63,6 +75,8 @@ const labels = {
     experience: 'Experiências',
     books: 'Livros',
     contact: 'Contato',
+    resume: 'Currículo',
+    resumeDownload: 'Baixar currículo em PDF',
     toggle: 'Mudar site para inglês',
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
@@ -73,6 +87,8 @@ const labels = {
     experience: 'Experience',
     books: 'Books',
     contact: 'Contact',
+    resume: 'Resume',
+    resumeDownload: 'Download resume PDF',
     toggle: 'Switch site to Portuguese',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -147,7 +163,7 @@ onBeforeUnmount(() => {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(14px, 2vw, 28px);
   justify-content: center;
 }
 
@@ -201,6 +217,12 @@ onBeforeUnmount(() => {
   color: #000 !important;
 }
 
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+}
+
 .lang-switch {
   width: 42px;
   height: 32px;
@@ -218,6 +240,32 @@ onBeforeUnmount(() => {
   border-color: var(--accent);
   background: var(--accent-dim);
   color: var(--accent);
+}
+
+.resume-download {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px !important;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent) !important;
+  background: var(--accent-dim);
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resume-download::after {
+  display: none !important;
+}
+
+.resume-download:hover {
+  background: var(--accent);
+  color: #000 !important;
 }
 
 .hamburger {
@@ -320,7 +368,17 @@ onBeforeUnmount(() => {
   .lang-switch {
     width: 52px;
     height: 44px;
+  }
+
+  .nav-actions {
+    justify-content: center;
+    width: 100%;
     margin-top: 4px;
+  }
+
+  .resume-download {
+    min-height: 44px;
+    padding: 0 16px !important;
   }
 
   .nav-backdrop {

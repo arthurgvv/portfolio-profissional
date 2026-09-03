@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section id="inicio" class="hero snap-section">
+    <section id="inicio" class="hero anchor-section">
       <div class="container hero-inner">
         <div class="hero-left">
           <h1 class="hero-title">Arthur <span class="accent">Gonçalves</span></h1>
@@ -15,7 +15,7 @@
       </div>
     </section>
 
-    <section class="about snap-section">
+    <section class="about anchor-section">
       <div class="about-grid">
         <div class="about-lang featured">
           <span class="lang-tag mono">{{ content[lang].languageTag }}</span>
@@ -25,11 +25,11 @@
       </div>
     </section>
 
-    <section id="sobre" class="landing-section snap-section"><SobreMim /></section>
-    <section id="projetos" class="landing-section snap-section"><Projetos /></section>
-    <section id="experiencias" class="landing-section snap-section"><Experiencias /></section>
-    <section id="livros" class="landing-section snap-section"><Livros /></section>
-    <section id="contato" class="landing-section snap-section"><Contato /></section>
+    <section id="sobre" class="landing-section anchor-section"><SobreMim /></section>
+    <section id="projetos" class="landing-section anchor-section"><Projetos /></section>
+    <section id="experiencias" class="landing-section anchor-section"><Experiencias /></section>
+    <section id="livros" class="landing-section anchor-section"><Livros /></section>
+    <section id="contato" class="landing-section anchor-section"><Contato /></section>
   </div>
 </template>
 
@@ -65,9 +65,7 @@ const content = {
 
 <style scoped>
 .landing-section,
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+.anchor-section {
   scroll-margin-top: 64px;
 }
 
