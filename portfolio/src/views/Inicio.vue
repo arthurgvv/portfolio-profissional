@@ -28,6 +28,7 @@
     <section id="sobre" class="landing-section anchor-section"><SobreMim /></section>
     <section id="projetos" class="landing-section anchor-section"><Projetos /></section>
     <section id="experiencias" class="landing-section anchor-section"><Experiencias /></section>
+    <section id="livros" class="landing-section anchor-section"><Livros /></section>
     <section id="contato" class="landing-section anchor-section"><Contato /></section>
   </div>
 </template>
@@ -38,6 +39,7 @@ import { useLanguage } from '../composables/useLanguage'
 import SobreMim from './SobreMim.vue'
 import Projetos from './Projetos.vue'
 import Experiencias from './Experiencias.vue'
+import Livros from './Livros.vue'
 import Contato from './Contato.vue'
 
 const { lang } = useLanguage()
