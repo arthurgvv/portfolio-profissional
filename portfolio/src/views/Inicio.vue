@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="hero-right">
-          <img src="@/assets/styles/arthur-goncalves.jpeg" alt="Arthur Gonçalves" class="avatar-img" />
+          <img src="@/assets/styles/arthur-goncalves-nova.png" alt="Arthur Gonçalves" class="avatar-img" />
         </div>
       </div>
     </section>
@@ -28,7 +28,6 @@
     <section id="sobre" class="landing-section anchor-section"><SobreMim /></section>
     <section id="projetos" class="landing-section anchor-section"><Projetos /></section>
     <section id="experiencias" class="landing-section anchor-section"><Experiencias /></section>
-    <section id="livros" class="landing-section anchor-section"><Livros /></section>
     <section id="contato" class="landing-section anchor-section"><Contato /></section>
   </div>
 </template>
@@ -39,24 +38,23 @@ import { useLanguage } from '../composables/useLanguage'
 import SobreMim from './SobreMim.vue'
 import Projetos from './Projetos.vue'
 import Experiencias from './Experiencias.vue'
-import Livros from './Livros.vue'
 import Contato from './Contato.vue'
 
 const { lang } = useLanguage()
 
 const content = {
   pt: {
-    heroSubtitle: 'Engenharia de Software | Python | Databricks | SQL',
+    heroSubtitle: 'Engenharia de Software | SQL | Python | Databricks | ETL',
     projectsButton: 'Ver Projetos ↓',
     languageTag: 'BR Português',
-    about: 'Estudante de Engenharia de Software na PUC Minas, direcionando minha formação para Dados. Estou aprofundando meus estudos em SQL, Python, Databricks, modelagem de dados e organização de informações para análise.',
+    about: 'Estudante de Engenharia de Software com foco na área de Dados, buscando desenvolver soluções para coleta, tratamento, transformação e organização de dados, tornando-os confiáveis e disponíveis para análises e tomada de decisão, com interesse em evoluir profissionalmente para Engenharia de Dados.',
     readMore: 'Ler mais →',
   },
   en: {
-    heroSubtitle: 'Software Engineering | Python | Databricks | SQL',
+    heroSubtitle: 'Software Engineering | SQL | Python | Databricks | ETL',
     projectsButton: 'View Projects ↓',
     languageTag: 'US English',
-    about: 'Software Engineering student at PUC Minas, currently steering my studies toward Data. I am deepening my knowledge in SQL, Python, Databricks, data modeling and organizing information for analysis.',
+    about: 'Software Engineering student focused on Data, seeking to develop solutions for collecting, processing, transforming and organizing data, making it reliable and available for analysis and decision-making, with interest in evolving professionally into Data Engineering.',
     readMore: 'Read more →',
   },
 }

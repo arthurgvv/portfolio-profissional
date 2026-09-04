@@ -9,7 +9,6 @@
         <RouterLink to="/#sobre" @click="menuOpen = false">{{ labels[lang].about }}</RouterLink>
         <RouterLink to="/#projetos" @click="menuOpen = false">{{ labels[lang].projects }}</RouterLink>
         <RouterLink to="/#experiencias" @click="menuOpen = false">{{ labels[lang].experience }}</RouterLink>
-        <RouterLink to="/#livros" @click="menuOpen = false">{{ labels[lang].books }}</RouterLink>
         <RouterLink to="/#contato" class="nav-cta" @click="menuOpen = false">
           {{ labels[lang].contact }}&nbsp;↗
         </RouterLink>
@@ -73,7 +72,6 @@ const labels = {
     about: 'Sobre Mim',
     projects: 'Projetos',
     experience: 'Experiências',
-    books: 'Livros',
     contact: 'Contato',
     resume: 'Currículo',
     resumeDownload: 'Baixar currículo em PDF',
@@ -85,7 +83,6 @@ const labels = {
     about: 'About Me',
     projects: 'Projects',
     experience: 'Experience',
-    books: 'Books',
     contact: 'Contact',
     resume: 'Resume',
     resumeDownload: 'Download resume PDF',

@@ -153,7 +153,7 @@ const content = {
     bio: [
       'Meu primeiro contato com programação aconteceu durante a pandemia, quando comecei a explorar a área de tecnologia de forma mais curiosa e independente. O que começou como um interesse simples evoluiu para uma conexão mais profunda com a área.',
       'Em 2024, iniciei minha formação em Análise e Desenvolvimento de Sistemas pela PUC Minas. Após o primeiro período, migrei para Engenharia de Software, onde realmente desenvolvi gosto pela programação e defini meu objetivo de seguir carreira na área.',
-      'Atualmente, estou direcionando minha formação para a área de Dados, com foco em SQL, Python, Databricks, modelagem de dados e organização de informações para análise.',
+      'Atualmente, estou direcionando minha formação para a área de Dados, com foco em SQL, Python, Databricks, ETL, arquitetura Medallion, modelagem de dados e organização de informações para análise.',
       'Também mantenho uma base em desenvolvimento front-end e back-end, o que complementa minha formação em Dados e me ajuda a entender sistemas, integrações e aplicações de ponta a ponta.'
     ],
     education: [
@@ -175,7 +175,7 @@ const content = {
     bio: [
       'My first contact with programming happened during the pandemic, when I began exploring technology in a more curious and independent way. What started as a simple interest gradually turned into a deeper connection with the field.',
       'In 2024, I started my studies in Systems Analysis and Development at PUC Minas. After my first semester, I transitioned to Software Engineering, where I truly developed a passion for programming and defined my goal of building a career in the area.',
-      'I am currently steering my education toward Data, with a focus on SQL, Python, Databricks, data modeling and organizing information for analysis.',
+      'I am currently steering my education toward Data, with a focus on SQL, Python, Databricks, ETL, Medallion architecture, data modeling and organizing information for analysis.',
       'I also keep a front-end and back-end development background, which complements my Data education and helps me understand systems, integrations and applications end to end.'
     ],
     education: [
