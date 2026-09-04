@@ -101,7 +101,6 @@ const experiences = [
       pt: 'Criação e gestão de loja de artigos esportivos com foco em posicionamento digital e vendas online. Responsável pela estratégia do negócio, análise de mercado, definição de produtos e acompanhamento de métricas. Desenvolvimento de visão orientada a dados para tomada de decisão e otimização de resultados.',
       en: 'Creation and management of a sporting goods store focused on digital positioning and online sales. Responsible for business strategy, market analysis, product definition and metrics tracking, developing a data-oriented view for decision-making and result optimization.',
     },
-    techs: ['Negócios', 'Marketing Digital', 'Gestão'],
     current: false,
   },
   {
@@ -125,7 +124,6 @@ const experiences = [
       pt: 'Graduação em Engenharia de Software com direcionamento para Dados. Estudos focados em SQL, Python, Databricks, modelagem de dados, bancos de dados e fundamentos de desenvolvimento de software.',
       en: 'Software Engineering degree with a Data direction. Studies focused on SQL, Python, Databricks, data modeling, databases and software development fundamentals.',
     },
-    techs: ['SQL', 'Python', 'Databricks', 'Java', 'HTML', 'CSS', 'JavaScript', 'C'],
     current: true,
   },
 ]
