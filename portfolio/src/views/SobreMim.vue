@@ -191,8 +191,8 @@ const content = {
 
 const skills = [
   { name: 'SQL',                level: 82 },
-  { name: 'Python',             level: 70 },
-  { name: 'Databricks',         level: 64 },
+  { name: 'Python',             level: 76 },
+  { name: 'Databricks',         level: 80 },
 ]
 
 const readingBook = computed(() => books.find((book) => book.status === 'reading') ?? books[0])

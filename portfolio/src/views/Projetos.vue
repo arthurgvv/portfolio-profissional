@@ -179,6 +179,25 @@ function abrirProjeto(link) {
 
 const projects = [
   {
+    id: 7,
+    year: '2026',
+    name: {
+      pt: 'Pipeline de Dados End-to-End – Olist E-commerce',
+      en: 'End-to-End Data Pipeline – Olist E-commerce',
+    },
+    description: {
+      pt: 'Pipeline de Engenharia de Dados no Databricks com arquitetura Medallion (Bronze, Silver e Gold), processando cerca de 100 mil pedidos do dataset público de e-commerce da Olist. Ingestão incremental com Auto Loader, limpeza e padronização com PySpark e modelagem dimensional em modelo estrela, com marts de negócio e segmentação RFM de clientes. Conta com 39 testes automatizados de qualidade de dados, testes unitários com pytest, orquestração por Job com alerta de falha e dashboard analítico.',
+      en: 'Data Engineering pipeline on Databricks using the Medallion architecture (Bronze, Silver and Gold), processing around 100k orders from the public Olist e-commerce dataset. Incremental ingestion with Auto Loader, cleaning and standardization with PySpark and dimensional star-schema modeling, with business marts and RFM customer segmentation. Includes 39 automated data quality tests, unit tests with pytest, Job orchestration with failure alerts and an analytics dashboard.',
+    },
+    techs: ['Projeto pessoal', 'Databricks', 'PySpark', 'SQL', 'GitHub'],
+    category: 'personal',
+    highlight: true,
+    link: 'https://github.com/arthurgvv/end-to-end-data-pipeline',
+    images: [
+      new URL('../assets/styles/databricks-pipeline.png', import.meta.url).href,
+    ],
+  },
+  {
     id: 3,
     year: '2026',
     name: {
@@ -191,7 +210,7 @@ const projects = [
     },
     techs: ['Web App', 'Projeto acadêmico', 'GitHub'],
     category: 'academic',
-    highlight: true,
+    highlight: false,
     link: 'https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti4-3126100-seri-estudio',
     images: [
       new URL('../assets/styles/seri-estudio-home.png', import.meta.url).href,
