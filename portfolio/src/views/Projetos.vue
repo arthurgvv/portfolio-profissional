@@ -39,15 +39,25 @@
               tabindex="0"
               @mouseenter="pauseCarousel(project.id)"
               @mouseleave="resumeCarousel(project.id)"
-              @click="abrirProjeto(project.link)"
-              @keydown.enter="abrirProjeto(project.link)"
-              @keydown.space.prevent="abrirProjeto(project.link)"
+              @click="abrirProjeto(project)"
+              @keydown.enter="abrirProjeto(project)"
+              @keydown.space.prevent="abrirProjeto(project)"
             >
 
               <div class="tl-card-gallery">
                 <template v-if="project.images && project.images.length > 0">
                   <div class="gallery-viewport">
+                    <video
+                      v-if="isVideo(project.images[activeIndex[project.id] ?? 0])"
+                      :src="project.images[activeIndex[project.id] ?? 0]"
+                      class="gallery-img"
+                      autoplay
+                      muted
+                      playsinline
+                      @ended="advanceProject(project)"
+                    ></video>
                     <img
+                      v-else
                       :src="project.images[activeIndex[project.id] ?? 0]"
                       :alt="project.name[lang] + ' screenshot ' + ((activeIndex[project.id] ?? 0) + 1)"
                       class="gallery-img"
@@ -116,9 +126,11 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
 import { useLanguage } from '../composables/useLanguage'
 
 const { lang } = useLanguage()
+const router = useRouter()
 
 const skills = [
   'SQL', 'Python', 'Databricks', 'ETL', 'MySQL',
@@ -154,6 +166,9 @@ const activeIndex = reactive({})
 const pausedProjectId = ref(null)
 let carouselTimer
 
+function isVideo(src) {
+  return /\.(mp4|webm)$/i.test(src)
+}
 function advanceProject(project) {
   if (!project.images || project.images.length <= 1) return
   const cur = activeIndex[project.id] ?? 0
@@ -173,8 +188,12 @@ function pauseCarousel(projectId) {
 function resumeCarousel(projectId) {
   if (pausedProjectId.value === projectId) pausedProjectId.value = null
 }
-function abrirProjeto(link) {
-  window.open(link, "_blank")
+function abrirProjeto(project) {
+  if (project.page) {
+    router.push(project.page)
+    return
+  }
+  window.open(project.link, "_blank")
 }
 
 const projects = [
@@ -193,7 +212,9 @@ const projects = [
     category: 'personal',
     highlight: true,
     link: 'https://github.com/arthurgvv/end-to-end-data-pipeline',
+    page: '/projetos/pipeline-end-to-end',
     images: [
+      '/videos/pipeline-end-to-end-reels.mp4',
       new URL('../assets/styles/databricks-pipeline.png', import.meta.url).href,
     ],
   },
@@ -329,7 +350,10 @@ const filteredProjects = computed(() => {
 onMounted(() => {
   carouselTimer = window.setInterval(() => {
     filteredProjects.value.forEach((project) => {
-      if (pausedProjectId.value !== project.id) advanceProject(project)
+      if (pausedProjectId.value === project.id) return
+      // vídeo avança sozinho ao terminar (@ended), não pelo timer
+      if (isVideo(project.images?.[activeIndex[project.id] ?? 0])) return
+      advanceProject(project)
     })
   }, 3000)
 })

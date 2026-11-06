@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/Projetos.vue'),
   },
   {
+    path: '/projetos/pipeline-end-to-end',
+    name: 'projeto-pipeline',
+    component: () => import('../views/ProjetoPipeline.vue'),
+  },
+  {
     path: '/experiencias',
     name: 'experiencias',
     component: () => import('../views/Experiencias.vue'),
