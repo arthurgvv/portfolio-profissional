@@ -32,7 +32,7 @@
 
     <div class="books-toolbar container">
       <div>
-        <p class="toolbar-label mono">{{ content[lang].shelf }}</p>
+        <h2 class="page-title">{{ content[lang].shelf }}</h2>
         <p class="toolbar-description">{{ content[lang].toolbarDescription }}</p>
       </div>
       <div class="filters" role="group" :aria-label="content[lang].filterLabel">
@@ -264,19 +264,9 @@ function countByStatus(status) {
   text-align: center;
 }
 
-.toolbar-label {
-  margin-bottom: 4px;
-  color: var(--text);
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .toolbar-description {
-  color: var(--text-muted);
-  font-size: 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
   text-align: center;
 }
 
@@ -305,47 +295,61 @@ function countByStatus(status) {
 }
 
 .books-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  --books-gutter: 32px;
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .book-card {
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-card);
-  background: var(--surface-alt);
-  box-shadow: var(--shadow-main);
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 22px max(var(--books-gutter), calc((100% - 1136px) / 2));
+  border-top: 1px solid var(--border);
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s;
 }
 
-.book-card:hover {
-  border-color: rgba(200, 245, 74, 0.35);
-  transform: translateY(-3px);
+.book-card > * {
+  transition: transform 0.2s;
+}
+
+.book-card:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+
+.book-card:hover > * {
+  transform: translateX(4px);
+}
+
+.book-card:hover .book-title {
+  color: var(--accent);
 }
 
 .book-cover {
   position: relative;
-  min-height: 242px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
+  border-radius: 3px;
   background: var(--surface-dark);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
 }
 
 .cover-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #f7f7f4;
+  object-fit: cover;
 }
 
 .book-body {
-  padding: 18px 20px 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .book-topline,
@@ -359,7 +363,7 @@ function countByStatus(status) {
 
 .book-topline,
 .book-footer {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .status,
@@ -392,10 +396,11 @@ function countByStatus(status) {
 .book-year { color: var(--text-muted); }
 
 .book-title {
-  margin-top: 16px;
+  margin-top: 8px;
   color: var(--text);
   font-size: 17px;
   line-height: 1.2;
+  transition: color 0.2s;
 }
 
 .book-author {
@@ -405,15 +410,16 @@ function countByStatus(status) {
 }
 
 .book-note {
-  min-height: 62px;
-  margin-top: 14px;
+  max-width: 600px;
+  margin-top: 10px;
   color: var(--text-secondary);
   font-size: 12px;
   line-height: 1.65;
 }
 
 .progress-block {
-  margin-top: 18px;
+  max-width: 320px;
+  margin-top: 14px;
 }
 
 .progress-meta {
@@ -436,9 +442,7 @@ function countByStatus(status) {
 }
 
 .book-footer {
-  margin-top: 20px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
+  margin-top: 12px;
 }
 
 .book-tag {
@@ -472,9 +476,10 @@ function countByStatus(status) {
   text-align: center;
 }
 
-@media (max-width: 900px) {
-  .books-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 600px) {
+  .book-card {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 16px;
   }
 }
 
@@ -537,6 +542,18 @@ function countByStatus(status) {
 
   .empty-state {
     padding: 28px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .books-grid {
+    --books-gutter: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .books-grid {
+    --books-gutter: 16px;
   }
 }
 </style>
