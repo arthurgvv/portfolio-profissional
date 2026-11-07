@@ -18,9 +18,10 @@ const routes = [
     component: () => import('../views/Projetos.vue'),
   },
   {
-    path: '/projetos/pipeline-end-to-end',
-    name: 'projeto-pipeline',
-    component: () => import('../views/ProjetoPipeline.vue'),
+    path: '/projetos/:slug',
+    name: 'projeto-detalhe',
+    component: () => import('../views/ProjetoDetalhe.vue'),
+    props: true,
   },
   {
     path: '/experiencias',
