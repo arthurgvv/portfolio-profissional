@@ -5,7 +5,7 @@
   </div>
   <main class="app-main">
     <RouterView v-slot="{ Component }">
-      <Transition name="page" mode="out-in">
+      <Transition name="page" mode="out-in" @after-leave="onPageLeft">
         <component :is="Component" />
       </Transition>
     </RouterView>
@@ -18,6 +18,12 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import Navegacao from './components/Navegacao.vue'
 import Rodape from './components/Rodape.vue'
 import { RouterView } from 'vue-router'
+import { notifyPageLeft } from './router'
+
+// Avisa o router que a página antiga já saiu, para ele poder rolar a nova página
+function onPageLeft() {
+  notifyPageLeft()
+}
 
 const scrollProgress = ref(0)
 

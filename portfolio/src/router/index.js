@@ -40,13 +40,40 @@ const routes = [
   },
 ]
 
+// A transição de página (mode="out-in" no App.vue) mantém a página antiga na tela
+// por ~0.2s. Se rolarmos antes dela sair, a rolagem é cortada quando a página
+// muda de altura e a nova página abre no meio/fim. Por isso esperamos ela sair.
+let resolvePageLeft = null
+
+export function notifyPageLeft() {
+  if (resolvePageLeft) {
+    resolvePageLeft()
+    resolvePageLeft = null
+  }
+}
+
+function waitForPageLeave() {
+  return new Promise((resolve) => {
+    resolvePageLeft = resolve
+    // Garantia: se a transição não disparar o evento, segue mesmo assim
+    setTimeout(() => {
+      if (resolvePageLeft === resolve) notifyPageLeft()
+    }, 500)
+  })
+}
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to, _from, savedPosition) {
+  async scrollBehavior(to, from, savedPosition) {
+    // Só há transição quando o componente da página muda (ex.: início -> projeto)
+    const pageChanged = from.matched[0]?.components?.default !== to.matched[0]?.components?.default
+    if (pageChanged && from.matched.length) await waitForPageLeave()
+
     if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash, behavior: 'smooth' }
-    return { top: 0, behavior: 'smooth' }
+    // 'instant' ignora o scroll-behavior: smooth do CSS, que seria interrompido na troca de página
+    if (to.hash) return { el: to.hash, behavior: pageChanged ? 'instant' : 'smooth' }
+    return { top: 0, left: 0, behavior: 'instant' }
   },
 })
 
