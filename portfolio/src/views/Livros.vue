@@ -438,7 +438,7 @@ function countByStatus(status) {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--blue);
+  background: var(--accent);
 }
 
 .book-footer {
