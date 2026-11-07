@@ -87,7 +87,7 @@ const content = {
 .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px); gap: clamp(32px, 6vw, 64px); align-items: center; pointer-events: none; }
 .hero-inner a, .hero-inner button, .hero-inner img { pointer-events: auto; }
 .hero-left { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
-.hero-title { font-size: max(32px, calc(clamp(40px, 6vw, 80px) - 1cm)); line-height: 1.05; color: var(--text); overflow-wrap: anywhere; }
+.hero-title { font-size: max(32px, calc(clamp(40px, 6vw, 80px) - 1cm)); line-height: 1.05; color: var(--text); overflow-wrap: normal; word-break: normal; hyphens: none; }
 .hero-subtitle { max-width: 680px; font-size: clamp(14px, 1.5vw, 17px); color: var(--text-secondary); line-height: 1.7; }
 .hero-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .btn-primary { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 26px; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-radius: 8px; text-decoration: none; opacity: .82; transition: opacity .2s, transform .15s; }
@@ -113,7 +113,8 @@ const content = {
 @media (max-width: 480px) {
   .hero { min-height: auto; padding: 28px 0 40px; }
   .hero-left { gap: 18px; }
-  .hero-title { font-size: clamp(34px, 12vw, 44px); }
+  /* "Gonçalves" ocupa ~8.3em: 10vw garante que a palavra caiba inteira mesmo em 320px */
+  .hero-title { font-size: clamp(28px, 10vw, 44px); }
   .hero-subtitle { line-height: 1.55; }
   .hero-btns,
   .btn-primary { width: 100%; }
